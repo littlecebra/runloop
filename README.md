@@ -1,4 +1,4 @@
-# Garmin Coach – Lokales Lauftraining-Analyse-System
+# RunLoop – Lokales Lauftraining-Analyse-System
 
 Ein KI-gestütztes, adaptives Trainingsanalyse-System, das über den [Garmin MCP Server](https://github.com/Taxuspt/garmin_mcp) Trainingsdaten abruft, analysiert und einen personalisierten Trainingsplan erstellt.
 
@@ -119,7 +119,7 @@ Weitere nützliche Befehle:
 
 Wenn du eine neue Chat-Session startest und die KI den Kontext nicht kennt, nutze diesen Prompt:
 
-> Ich arbeite am Projekt "Garmin Coach" – ein lokales Lauftraining-Analyse-System.
+> Ich arbeite am Projekt "RunLoop" – ein lokales Lauftraining-Analyse-System.
 > Lies bitte `skills/garmin_data.md` und `skills/garmin_coach.md` für die Anleitungen.
 > Meine persönlichen Werte stehen in `config/athlete.json`.
 > Alle Trainingsdaten liegen in `data/`.
@@ -221,3 +221,64 @@ python3 scripts/push_workout.py     # Nächsten Workout als JSON ausgeben
 - **Visualisierung**: Chart.js 4.x (via CDN)
 - **Design**: Dark OLED Theme, Purple/Pink Accent, Inter Font
 - **KI-Integration**: Skills + Steering-Dateien für Kiro, Claude, Cursor, OpenAI
+
+
+---
+
+## English
+
+### What is RunLoop?
+
+RunLoop is a local, AI-driven running analysis system that connects to Garmin Connect via MCP. It tracks your fitness metrics, detects strengths and weaknesses, and generates adaptive training plans based on your actual performance data – not generic templates.
+
+### Quick Setup
+
+1. **Install uv**: `brew install uv` (macOS) or see [uv docs](https://docs.astral.sh/uv/getting-started/installation/)
+2. **Configure Garmin MCP** in your AI tool's MCP settings:
+   ```json
+   {
+     "mcpServers": {
+       "garmin": {
+         "command": "uvx",
+         "args": ["--python", "3.12", "--from", "git+https://github.com/Taxuspt/garmin_mcp", "garmin-mcp"]
+       }
+     }
+   }
+   ```
+3. **Authenticate**: On first MCP tool call, enter your Garmin Connect email + password (cached locally)
+4. **Configure profile**: `cp config/athlete.example.json config/athlete.json` and edit your values (or use the Setup Wizard at `web/setup.html`)
+5. **Import data**: Tell the AI: *"Import my running data since 2025-01-01"*
+
+### Daily Workflow
+
+After each run, just say:
+
+> "New run today, analyze and update everything."
+
+The AI will: sync Garmin data → analyze metrics → adapt training plan → regenerate dashboard.
+
+### Coach Types
+
+Choose in `config/athlete.json` → `coach_typ.aktiv`:
+
+| Type | Key | Distribution | Best for |
+|------|-----|-------------|----------|
+| Maffetone | `maffetone` | 100% Z1-Z2 | Beginners, weight loss, recovery |
+| Polarized | `polarisiert` | 80% Z1-Z2, 20% Z4-Z5 | Most runners, marathon prep |
+| Pyramidal | `pyramidal` | 75/15/10 | High-volume experienced runners |
+| Threshold | `threshold` | 60/20/20 | Race-focused, strong base needed |
+| Norwegian | `norwegisch` | 65/25/10 | Very ambitious, 60+ km/week |
+| Adaptive | `adaptiv` | AI decides | Everyone – AI picks best approach |
+
+### Dashboard
+
+Open `web/index.html` in your browser. Use the DE/EN toggle in the top-right corner to switch languages.
+
+### AI Tool Compatibility
+
+| Tool | Config file | Auto-loaded? |
+|------|------------|-------------|
+| Kiro | `.kiro/steering/garmin-coach.md` | Yes |
+| Claude Code | `CLAUDE.md` | Yes |
+| Cursor | `.cursorrules` | Yes |
+| OpenAI/Other | `AGENTS.md` | Reference manually |

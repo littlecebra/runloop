@@ -1,10 +1,10 @@
-# Garmin Coach – Agent-Instruktionen
+# RunLoop – Agent-Instruktionen
 
 Dieses Dokument beschreibt das Projekt für KI-Agenten (OpenAI, Copilot, etc.).
 
 ## Projekt-Übersicht
 
-"Garmin Coach" ist ein lokales Lauftraining-Analyse-System. Es nutzt einen MCP Server um Daten von Garmin Connect abzurufen, analysiert diese lokal und erstellt adaptive Trainingspläne.
+"RunLoop" ist ein lokales Lauftraining-Analyse-System. Es nutzt einen MCP Server um Daten von Garmin Connect abzurufen, analysiert diese lokal und erstellt adaptive Trainingspläne.
 
 ## Architektur
 

@@ -1,6 +1,6 @@
-# Garmin Coach – Cursor Rules
+# RunLoop – Cursor Rules
 
-Du arbeitest am Projekt "Garmin Coach" – ein lokales, KI-gestütztes Lauftraining-Analyse-System.
+Du arbeitest am Projekt "RunLoop" – ein lokales, KI-gestütztes Lauftraining-Analyse-System.
 
 ## Lies zuerst:
 - `skills/garmin_data.md` – Wie Daten von Garmin geholt und gespeichert werden

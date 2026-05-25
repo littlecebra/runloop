@@ -334,7 +334,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garmin Coach – Dashboard</title>
+    <title>RunLoop – Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -345,12 +345,20 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
     <div class="app-container">
         <header>
             <div class="header-left">
-                <h1>Garmin Coach</h1>
-                <p class="subtitle">Generiert am {generiert_am}</p>
+                <h1>RunLoop</h1>
+                <p class="subtitle" data-lang-de>Generiert am {generiert_am}</p>
+                <p class="subtitle" data-lang-en>Generated {generiert_am}</p>
             </div>
-            <div class="header-right">
-                <div class="countdown">{countdown}</div>
-                <span class="countdown-label">Tage bis {zielrennen.get("name", "Zielrennen")}</span>
+            <div class="header-right" style="display: flex; align-items: center; gap: 16px;">
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLang('de')">DE</button>
+                    <button class="lang-btn" onclick="setLang('en')">EN</button>
+                </div>
+                <div style="text-align: right">
+                    <div class="countdown">{countdown}</div>
+                    <span class="countdown-label" data-lang-de>Tage bis {zielrennen.get("name", "Zielrennen")}</span>
+                    <span class="countdown-label" data-lang-en>days to {zielrennen.get("name", "race")}</span>
+                </div>
             </div>
         </header>
 
@@ -358,10 +366,10 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <nav class="nav-tabs">
             <button class="nav-tab active" data-tab="tab-dashboard">Dashboard</button>
             <button class="nav-tab" data-tab="tab-plan">Training</button>
-            <button class="nav-tab" data-tab="tab-prognose">Prognose</button>
-            <button class="nav-tab" data-tab="tab-charts">Statistiken</button>
-            <button class="nav-tab" data-tab="tab-coach">Coach-Typ</button>
-            <button class="nav-tab" data-tab="tab-historie">Historie</button>
+            <button class="nav-tab" data-tab="tab-prognose"><span data-lang-de>Prognose</span><span data-lang-en>Forecast</span></button>
+            <button class="nav-tab" data-tab="tab-charts"><span data-lang-de>Statistiken</span><span data-lang-en>Stats</span></button>
+            <button class="nav-tab" data-tab="tab-coach">Coach</button>
+            <button class="nav-tab" data-tab="tab-historie"><span data-lang-de>Historie</span><span data-lang-en>History</span></button>
         </nav>
 
         <!-- TAB: Dashboard -->
@@ -369,13 +377,13 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Coach-Kommentar -->
             <div class="card coach-card">
-                <h2>Coach-Einschätzung</h2>
+                <h2><span data-lang-de>Coach-Einschätzung</span><span data-lang-en>Coach Assessment</span></h2>
                 <p>{kommentar}</p>
             </div>
 
             <!-- Recovery-Ampel + Radial Gauge -->
             <div class="card">
-                <h2>Tagesform</h2>
+                <h2><span data-lang-de>Tagesform</span><span data-lang-en>Daily Readiness</span></h2>
                 <div class="recovery-row">
                     <div class="radial-gauge-container">
                         <svg class="radial-gauge" viewBox="0 0 120 120">
@@ -404,7 +412,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- KPIs -->
             <div class="card">
-                <h2>Aktueller Stand</h2>
+                <h2><span data-lang-de>Aktueller Stand</span><span data-lang-en>Current Status</span></h2>
                 <div class="kpi-grid">
                     <div class="kpi has-tooltip" tabindex="0">
                         <span class="kpi-wert">{aktuell.get('ctl', '--')}</span>
@@ -468,7 +476,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Intensitätsverteilung -->
             <div class="card alert-card">
-                <h2>Intensitätsverteilung (4 Wochen)</h2>
+                <h2><span data-lang-de>Intensitätsverteilung (4 Wochen)</span><span data-lang-en>Intensity Distribution (4 weeks)</span></h2>
                 <div class="kpi-grid">
                     <div class="kpi">
                         <span class="kpi-wert success">{verteilung.get('leicht_prozent', 0)}%</span>
@@ -488,7 +496,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
             <!-- Letzter Lauf -->
             {"" if not letzter else f'''
             <div class="card">
-                <h2>Letzter Lauf &mdash; {letzter.get("datum", "")}</h2>
+                <h2><span data-lang-de>Letzter Lauf</span><span data-lang-en>Last Run</span> &mdash; {letzter.get("datum", "")}</h2>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-value">{round(letzter.get("distanz_meter", 0) / 1000, 1)}</div>
@@ -516,7 +524,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Zielrennen -->
             <div class="card goal-card">
-                <h2>Zielrennen</h2>
+                <h2><span data-lang-de>Zielrennen</span><span data-lang-en>Target Race</span></h2>
                 <div class="goal-title">{zielrennen.get("name", "")} &mdash; {zielrennen.get("datum", "")}</div>
                 <div class="goal-details">{zielrennen.get("distanz_km", "")} km in {zielrennen.get("zielzeit", "")} (Ziel: {format_pace(zielrennen.get("ziel_pace_sek_pro_km", 0))}/km)</div>
                 <span class="goal-phase">{plan.get("phase", "").replace("_", " ")}</span>
@@ -526,7 +534,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <!-- TAB: Trainingsplan -->
         <div id="tab-plan" class="tab-content">
             <div class="card">
-                <h2>Wochenfokus: {plan.get("fokus_diese_woche", "")}</h2>
+                <h2><span data-lang-de>Wochenfokus</span><span data-lang-en>Weekly Focus</span>: {plan.get("fokus_diese_woche", "")}</h2>
                 <p class="plan-intro">{plan.get("begruendung", "")}</p>
             </div>
             {plan_html}
@@ -536,23 +544,23 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <div id="tab-prognose" class="tab-content">
             <!-- Rennprognose -->
             <div class="card">
-                <h2>Rennprognose: {race_prognosis.get("zielrennen", {}).get("name", "Zielrennen")}</h2>
+                <h2><span data-lang-de>Rennprognose</span><span data-lang-en>Race Prediction</span>: {race_prognosis.get("zielrennen", {}).get("name", "Zielrennen")}</h2>
                 <div class="kpi-grid">
                     <div class="kpi">
                         <span class="kpi-wert">{race_prognosis.get("prognose_aktuell", {}).get("geschaetzte_zeit", "--")}</span>
-                        <span class="kpi-label">Aktuelle Prognose</span>
+                        <span class="kpi-label"><span data-lang-de>Aktuelle Prognose</span><span data-lang-en>Current Prediction</span></span>
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{race_prognosis.get("zielrennen", {}).get("zielzeit", "--")}</span>
-                        <span class="kpi-label">Zielzeit</span>
+                        <span class="kpi-label"><span data-lang-de>Zielzeit</span><span data-lang-en>Target Time</span></span>
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{race_prognosis.get("prognose_aktuell", {}).get("konfidenz", "--").title()}</span>
-                        <span class="kpi-label">Konfidenz</span>
+                        <span class="kpi-label"><span data-lang-de>Konfidenz</span><span data-lang-en>Confidence</span></span>
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{countdown}</span>
-                        <span class="kpi-label">Tage verbleibend</span>
+                        <span class="kpi-label"><span data-lang-de>Tage verbleibend</span><span data-lang-en>Days remaining</span></span>
                     </div>
                 </div>
                 <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 16px; line-height: 1.6">{race_prognosis.get("prognose_aktuell", {}).get("begruendung", "")}</p>
@@ -560,7 +568,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Prognose-Faktoren -->
             <div class="card">
-                <h2>Einflussfaktoren auf die Prognose</h2>
+                <h2><span data-lang-de>Einflussfaktoren auf die Prognose</span><span data-lang-en>Prediction Factors</span></h2>
                 <div class="kpi-grid">
                     <div class="kpi has-tooltip" tabindex="0">
                         <span class="kpi-wert">{race_prognosis.get("faktoren", {}).get("aerobic_efficiency", {}).get("aktuell", "--")}</span>
@@ -592,14 +600,14 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Recovery Status -->
             <div class="card {'alert-success' if not recovery_log.get('eintraege') else ''}">
-                <h2>Recovery-Status</h2>
-                {"<p style='color: var(--text-muted); font-size: 0.85rem'>Noch keine Recovery-Daten. Werden beim nächsten Morgen-Check abgerufen (HRV, Ruhepuls, Schlaf, Body Battery).</p>" if not recovery_log.get("eintraege") else "<p style='color: var(--success); font-size: 0.85rem'>Recovery-Daten vorhanden. Letzte Messung: " + recovery_log["eintraege"][-1].get("datum", "") + "</p>"}
+                <h2>Recovery Status</h2>
+                {"<p style='color: var(--text-muted); font-size: 0.85rem'><span data-lang-de>Noch keine Recovery-Daten. Werden beim nächsten Morgen-Check abgerufen (HRV, Ruhepuls, Schlaf, Body Battery).</span><span data-lang-en>No recovery data yet. Will be fetched on next morning check (HRV, resting HR, sleep, body battery).</span></p>" if not recovery_log.get("eintraege") else "<p style='color: var(--success); font-size: 0.85rem'><span data-lang-de>Recovery-Daten vorhanden. Letzte Messung: </span><span data-lang-en>Recovery data available. Last measurement: </span>" + recovery_log["eintraege"][-1].get("datum", "") + "</p>"}
             </div>
 
             <!-- Gewichtsverlauf -->
             <div class="card">
-                <h2>Gewichtsverlauf</h2>
-                {"<p style='color: var(--text-muted); font-size: 0.85rem'>Noch keine Gewichtsdaten. Werden beim nächsten Sync von Garmin abgerufen.</p>" if not weight_history.get("eintraege") else ""}
+                <h2><span data-lang-de>Gewichtsverlauf</span><span data-lang-en>Weight Trend</span></h2>
+                {"<p style='color: var(--text-muted); font-size: 0.85rem'><span data-lang-de>Noch keine Gewichtsdaten. Werden beim nächsten Sync von Garmin abgerufen.</span><span data-lang-en>No weight data yet. Will be fetched on next Garmin sync.</span></p>" if not weight_history.get("eintraege") else ""}
                 <div class="kpi-grid" style="margin-top: 12px">
                     <div class="kpi">
                         <span class="kpi-wert">{weight_history.get("start_kg", config.get("gewicht", {}).get("aktuell_kg", "--"))}</span>
@@ -607,15 +615,15 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{weight_history.get("ziel_kg", config.get("gewicht", {}).get("ziel_kg", "--"))}</span>
-                        <span class="kpi-label">Ziel (kg)</span>
+                        <span class="kpi-label"><span data-lang-de>Ziel</span><span data-lang-en>Goal</span> (kg)</span>
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{round(weight_history.get("start_kg", 82) - weight_history.get("ziel_kg", 74), 1)}</span>
-                        <span class="kpi-label">Noch abzunehmen</span>
+                        <span class="kpi-label"><span data-lang-de>Noch abzunehmen</span><span data-lang-en>Remaining</span></span>
                     </div>
                     <div class="kpi">
                         <span class="kpi-wert">{config.get("gewicht", {}).get("ziel_datum", "--")}</span>
-                        <span class="kpi-label">Zieldatum</span>
+                        <span class="kpi-label"><span data-lang-de>Zieldatum</span><span data-lang-en>Target Date</span></span>
                     </div>
                 </div>
                 <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 12px">Jedes kg weniger = ca. 2-3 sek/km schneller im Rennen</p>
@@ -625,27 +633,27 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <!-- TAB: Statistiken -->
         <div id="tab-charts" class="tab-content">
             <div class="card chart-container">
-                <h2>Fitness / Ermüdung / Form (8 Wochen)</h2>
+                <h2><span data-lang-de>Fitness / Ermüdung / Form (8 Wochen)</span><span data-lang-en>Fitness / Fatigue / Form (8 weeks)</span></h2>
                 <canvas id="ctlChart"></canvas>
             </div>
             <div class="card chart-container">
-                <h2>Pace und Herzfrequenz pro Lauf</h2>
+                <h2><span data-lang-de>Pace und Herzfrequenz pro Lauf</span><span data-lang-en>Pace and Heart Rate per Run</span></h2>
                 <canvas id="paceHfChart"></canvas>
             </div>
             <div class="card chart-container">
-                <h2>Cardiac Drift (niedriger = fitter)</h2>
+                <h2><span data-lang-de>Cardiac Drift (niedriger = fitter)</span><span data-lang-en>Cardiac Drift (lower = fitter)</span></h2>
                 <canvas id="driftChart"></canvas>
             </div>
             <div class="card chart-container">
-                <h2>Wochenkilometer</h2>
+                <h2><span data-lang-de>Wochenkilometer</span><span data-lang-en>Weekly Kilometers</span></h2>
                 <canvas id="kmChart"></canvas>
             </div>
             <div class="card chart-container">
-                <h2>Aerobic Efficiency (niedriger = besser)</h2>
+                <h2><span data-lang-de>Aerobic Efficiency (niedriger = besser)</span><span data-lang-en>Aerobic Efficiency (lower = better)</span></h2>
                 <canvas id="aeChart"></canvas>
             </div>
             <div class="card chart-container">
-                <h2>Gewichtsverlauf</h2>
+                <h2><span data-lang-de>Gewichtsverlauf</span><span data-lang-en>Weight Trend</span></h2>
                 <canvas id="weightChart"></canvas>
             </div>
         </div>
@@ -653,7 +661,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <!-- TAB: Coach-Typ -->
         <div id="tab-coach" class="tab-content">
             <div class="card coach-card">
-                <h2>Aktiver Coach-Typ</h2>
+                <h2><span data-lang-de>Aktiver Coach-Typ</span><span data-lang-en>Active Coach Type</span></h2>
                 <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-light); margin-bottom: 8px">{config.get("coach_typ", {}).get("aktiv", "adaptiv").title()}</p>
                 <p style="color: var(--text-secondary); font-size: 0.85rem">{config.get("coach_typ", {}).get("beschreibung", "")}</p>
                 <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 12px">Ändern in: <code>config/athlete.json</code> → <code>coach_typ.aktiv</code></p>
@@ -661,8 +669,8 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
 
             <!-- Alle Coach-Typen -->
             <div class="card">
-                <h2>Verfügbare Coach-Typen</h2>
-                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px">Wähle den Ansatz, der zu deiner aktuellen Situation passt. Setze den Wert in <code>config/athlete.json</code>.</p>
+                <h2><span data-lang-de>Verfügbare Coach-Typen</span><span data-lang-en>Available Coach Types</span></h2>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 20px"><span data-lang-de>Wähle den Ansatz, der zu deiner aktuellen Situation passt. Setze den Wert in <code>config/athlete.json</code>.</span><span data-lang-en>Choose the approach that fits your current situation. Set the value in <code>config/athlete.json</code>.</span></p>
             </div>
 
             <div class="plan-tag">
@@ -777,8 +785,8 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         <!-- TAB: Coach-Historie -->
         <div id="tab-historie" class="tab-content">
             <div class="card">
-                <h2>Coach-Analyse-Historie</h2>
-                <p style="color: var(--text-secondary); font-size: 0.85rem;">Alle Analysen, Wochen-Zusammenfassungen und Empfehlungen chronologisch dokumentiert.</p>
+                <h2><span data-lang-de>Coach-Analyse-Historie</span><span data-lang-en>Coach Analysis History</span></h2>
+                <p style="color: var(--text-secondary); font-size: 0.85rem;"><span data-lang-de>Alle Analysen, Wochen-Zusammenfassungen und Empfehlungen chronologisch dokumentiert.</span><span data-lang-en>All analyses, weekly summaries and recommendations documented chronologically.</span></p>
             </div>
             <div class="timeline">
                 {timeline_html}
@@ -786,7 +794,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
         </div>
 
         <footer>
-            <p>Garmin Coach · Datenquelle: Garmin Connect via MCP · Automatisch generiert · <a href="setup.html" style="color: var(--primary-light)">Setup-Wizard</a></p>
+            <p>RunLoop · <span data-lang-de>Datenquelle: Garmin Connect via MCP · Automatisch generiert</span><span data-lang-en>Data: Garmin Connect via MCP · Auto-generated</span> · <a href="setup.html">Setup</a></p>
         </footer>
     </div>
 
@@ -801,6 +809,20 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
             paceHf: {{ labels: {pace_hf_labels}, pace: {pace_hf_pace}, hf: {pace_hf_hf} }}
         }};
         initCharts(chartData);
+
+        // Language Switch
+        function setLang(lang) {{
+            document.body.className = document.body.className.replace(/lang-\\w+/, '') + ' lang-' + lang;
+            if (!document.body.classList.contains('lang-' + lang)) document.body.classList.add('lang-' + lang);
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.lang-btn[onclick*=\"' + lang + '\"]').classList.add('active');
+            localStorage.setItem('runloop-lang', lang);
+        }}
+        // Init language from localStorage or default to DE
+        (function() {{
+            const saved = localStorage.getItem('runloop-lang') || 'de';
+            setLang(saved);
+        }})();
     </script>
 </body>
 </html>"""

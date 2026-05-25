@@ -2,9 +2,9 @@
 inclusion: auto
 ---
 
-# Garmin Coach – Projekt-Instruktionen
+# RunLoop – Projekt-Instruktionen
 
-Du arbeitest am Projekt "Garmin Coach" – ein lokales, KI-gestütztes Lauftraining-Analyse-System.
+Du arbeitest am Projekt "RunLoop" – ein lokales, KI-gestütztes Lauftraining-Analyse-System.
 
 ## Kontext
 
