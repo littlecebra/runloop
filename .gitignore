@@ -1,0 +1,39 @@
+# Userspezifische Konfiguration (enthält persönliche Daten)
+config/athlete.json
+
+# Generierte Daten (werden lokal erzeugt, nicht versioniert)
+data/activities/*.json
+!data/activities/.gitkeep
+data/history.json
+data/analysis.json
+data/athlete_profile.json
+data/race_prognosis.json
+data/recovery_log.json
+data/weight_history.json
+data/coach_history.json
+data/weekly_summaries.json
+data/plan.json
+
+# Generiertes Dashboard (wird von generate_report.py erzeugt)
+web/index.html
+
+# Environment / Secrets
+.env
+.env.local
+
+# MCP Credentials Cache
+.garmin_session/
+.garmin_mcp_cache/
+
+# OS-Dateien
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo

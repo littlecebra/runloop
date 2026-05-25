@@ -1,0 +1,52 @@
+{
+  "_kommentar": "KOPIERVORLAGE – Kopiere diese Datei als 'athlete.json' und trage deine Werte ein.",
+  "name": "Dein Name",
+  "coach_typ": {
+    "_hinweis": "Wählbar: maffetone, polarisiert, pyramidal, threshold, norwegisch, adaptiv",
+    "aktiv": "adaptiv",
+    "beschreibung": "KI entscheidet basierend auf Daten, welcher Ansatz gerade am besten passt"
+  },
+  "herzfrequenz": {
+    "max": 190,
+    "ruhe": 55,
+    "laktatschwelle": 165,
+    "zonen": {
+      "_hinweis": "Prozent der maximalen Herzfrequenz",
+      "Z1": { "min_prozent": 50, "max_prozent": 60, "bezeichnung": "Regeneration" },
+      "Z2": { "min_prozent": 60, "max_prozent": 70, "bezeichnung": "Grundlagenausdauer" },
+      "Z3": { "min_prozent": 70, "max_prozent": 80, "bezeichnung": "Aerobe Schwelle" },
+      "Z4": { "min_prozent": 80, "max_prozent": 90, "bezeichnung": "Anaerobe Schwelle" },
+      "Z5": { "min_prozent": 90, "max_prozent": 100, "bezeichnung": "Maximale Belastung" }
+    }
+  },
+  "pace_zonen": {
+    "_hinweis": "Pace in Sekunden pro Kilometer – anpassen an dein Niveau",
+    "Z1": { "min_sek_pro_km": 390, "max_sek_pro_km": 450, "bezeichnung": "Regeneration" },
+    "Z2": { "min_sek_pro_km": 345, "max_sek_pro_km": 390, "bezeichnung": "Grundlage" },
+    "Z3": { "min_sek_pro_km": 315, "max_sek_pro_km": 345, "bezeichnung": "Tempo" },
+    "Z4": { "min_sek_pro_km": 285, "max_sek_pro_km": 315, "bezeichnung": "Schwelle" },
+    "Z5": { "min_sek_pro_km": 240, "max_sek_pro_km": 285, "bezeichnung": "Intervall" }
+  },
+  "training": {
+    "_hinweis": "Verfügbarkeit und Präferenzen für die Trainingsplanung",
+    "lauftage_pro_woche": 3,
+    "bevorzugte_tage": ["dienstag", "donnerstag", "sonntag"],
+    "langer_lauf_tag": "sonntag",
+    "intensitaet_tag": "donnerstag",
+    "max_dauer_min_werktag": 60,
+    "max_dauer_min_wochenende": 120
+  },
+  "gewicht": {
+    "aktuell_kg": 80.0,
+    "ziel_kg": 75.0,
+    "ziel_datum": "2026-12-31",
+    "_hinweis": "Wird für Pace/kg-Berechnungen und Belastungssteuerung genutzt."
+  },
+  "zielrennen": {
+    "name": "Halbmarathon",
+    "datum": "2026-10-01",
+    "distanz_km": 21.1,
+    "zielzeit": "1:45:00",
+    "ziel_pace_sek_pro_km": 298
+  }
+}

@@ -1,0 +1,27 @@
+# Garmin Coach – Cursor Rules
+
+Du arbeitest am Projekt "Garmin Coach" – ein lokales, KI-gestütztes Lauftraining-Analyse-System.
+
+## Lies zuerst:
+- `skills/garmin_data.md` – Wie Daten von Garmin geholt und gespeichert werden
+- `skills/garmin_coach.md` – Wie Trainingsanalyse und Plansteuerung funktionieren
+- `config/athlete.json` – Persönliche Werte des Athleten
+
+## MCP Server: Garmin Connect
+- Server: https://github.com/Taxuspt/garmin_mcp
+- Kommando: `uvx --python 3.12 --from git+https://github.com/Taxuspt/garmin_mcp garmin-mcp`
+- Beim ersten Aufruf werden Garmin Connect Credentials abgefragt (E-Mail + Passwort)
+
+## Regeln:
+1. Bei jedem Garmin-Sync: Gewicht + Recovery + Training Status mitholen
+2. Dashboard-Design: Dark Theme, #a855f7 (Lila) + #f43f5e (Pink), Outfit Font, KEINE Emojis als Icons
+3. Falls Skills `frontend-design` oder `ui-ux-pro-max` vorhanden sind (`.kiro/skills/` oder `.kiro/steering/`), nutze sie bei UI-Änderungen
+4. Daten in `data/` persistieren (JSON)
+5. Scripts standalone lauffähig (keine externen Python-Dependencies)
+6. Coach-Typ aus `config/athlete.json` beachten
+7. Workouts nur auf explizite Anfrage pushen
+
+## Typische Workflows:
+- "Neuer Lauf" → Daten holen → analyze.py → Plan anpassen → Report generieren
+- "Sync mit Garmin" → Aktivitäten + Gewicht + Recovery holen
+- "Push Workout" → Workout zu Garmin hochladen + im Kalender planen

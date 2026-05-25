@@ -1,0 +1,45 @@
+{
+  "_kommentar": "MCP-Konfiguration für den Garmin Connect Server (https://github.com/Taxuspt/garmin_mcp)",
+  "server": {
+    "name": "garmin_mcp",
+    "quelle": "https://github.com/Taxuspt/garmin_mcp",
+    "beschreibung": "Garmin Connect MCP Server – liest Aktivitäten, Health-Daten und pusht Workouts"
+  },
+  "tools": {
+    "aktivitaeten_abrufen": [
+      "get_activities_by_date",
+      "get_activity",
+      "get_activities",
+      "get_activity_splits",
+      "get_activity_split_summaries",
+      "get_activity_hr_in_timezones",
+      "get_activity_power_in_timezones",
+      "get_activity_weather",
+      "get_activity_gear",
+      "get_training_effect"
+    ],
+    "fitness_recovery": [
+      "get_training_status",
+      "get_hrv_data",
+      "get_training_readiness",
+      "get_training_load_trend",
+      "get_vo2max_trend"
+    ],
+    "workouts_pushen": [
+      "upload_workout",
+      "schedule_workout",
+      "create_walk_run_workout"
+    ],
+    "koerper_gesundheit": [
+      "get_stats",
+      "get_heart_rates_summary",
+      "get_sleep_summary",
+      "get_body_composition"
+    ]
+  },
+  "einstellungen": {
+    "max_aktivitaeten_pro_abruf": 50,
+    "timeout_sekunden": 30,
+    "retry_versuche": 2
+  }
+}

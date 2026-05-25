@@ -1,0 +1,143 @@
+{
+  "_kommentar": "Verfügbare Coach-Typen mit Trainingsphilosophie und Regeln",
+  "typen": {
+    "maffetone": {
+      "name": "Maffetone (MAF)",
+      "kurzname": "MAF",
+      "philosophie": "100% aerob. Nur unter MAF-Herzfrequenz (180 - Alter) laufen. Keine Intensität bis die aerobe Basis steht.",
+      "fuer_wen": "Anfänger, Übertrainierte, Gewichtsreduktion, Comeback nach Verletzung",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": 100,
+        "z3_prozent": 0,
+        "z4_z5_prozent": 0
+      },
+      "regeln": [
+        "Nur unter MAF-HF laufen (180 - Alter = bei dir 180 - 34 = 146 bpm)",
+        "Keine Ausnahmen – auch nicht bergauf. Lieber gehen.",
+        "Pace komplett ignorieren, nur HF zählt",
+        "Fortschritt messen: Gleiche Strecke, gleiche HF → Pace wird schneller",
+        "Erst wenn Pace 3 Monate stagniert: Intensität einführen",
+        "Ideal für Gewichtsreduktion (maximale Fettverbrennung)"
+      ],
+      "trainingstypen": ["lockerer_dauerlauf", "langer_lauf", "recovery_lauf", "nuechternlauf"],
+      "wann_wechseln": "Wenn Aerobic Efficiency 3+ Monate stagniert oder Zielrennen < 12 Wochen",
+      "vorteile": ["Verletzungsprävention", "Fettverbrennung", "Nachhaltig", "Einfach umzusetzen"],
+      "nachteile": ["Langsamer Fortschritt", "Kann sich langweilig anfühlen", "Keine Schnelligkeitsreize"]
+    },
+    "polarisiert": {
+      "name": "Polarisiert (Seiler)",
+      "kurzname": "80/20",
+      "philosophie": "80% in Zone 1-2 (leicht), 20% in Zone 4-5 (hart). Zone 3 wird bewusst vermieden.",
+      "fuer_wen": "Fortgeschrittene Läufer, Marathon/HM-Vorbereitung, bewährter Ansatz",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": 80,
+        "z3_prozent": 0,
+        "z4_z5_prozent": 20
+      },
+      "regeln": [
+        "80% der Trainingszeit in Z1-Z2 (wirklich locker!)",
+        "20% in Z4-Z5 (wirklich hart – Intervalle, Schwellenläufe)",
+        "Zone 3 aktiv vermeiden ('Niemandsland')",
+        "Leichte Tage LEICHT, harte Tage HART – kein Mittelding",
+        "Mindestens 48h zwischen intensiven Einheiten",
+        "Langer Lauf zählt zu den 80% (Z2)"
+      ],
+      "trainingstypen": ["lockerer_dauerlauf", "langer_lauf", "intervalle_kurz", "intervalle_lang", "tempo_dauerlauf", "steigerungslaeufe"],
+      "wann_wechseln": "Wenn Plateau erreicht oder spezifischere Vorbereitung nötig",
+      "vorteile": ["Wissenschaftlich gut belegt", "Gute Balance Belastung/Erholung", "Vielseitig"],
+      "nachteile": ["Erfordert Disziplin bei leichten Läufen", "Z3-Vermeidung manchmal schwierig"]
+    },
+    "pyramidal": {
+      "name": "Pyramidal (Esteve-Lanao)",
+      "kurzname": "Pyramidal",
+      "philosophie": "75% Zone 1, 15% Zone 2-3, 10% Zone 4-5. Mehr Volumen in der Mitte als polarisiert.",
+      "fuer_wen": "Erfahrene Läufer mit hohem Wochenvolumen (50+ km), Marathonläufer",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": 75,
+        "z3_prozent": 15,
+        "z4_z5_prozent": 10
+      },
+      "regeln": [
+        "Großteil in Z1 (sehr locker)",
+        "Moderate Einheiten in Z2-Z3 erlaubt (anders als polarisiert)",
+        "Weniger hochintensive Einheiten als polarisiert",
+        "Höheres Gesamtvolumen nötig damit es funktioniert",
+        "Tempo-Dauerläufe in Z3 sind ein Kernbestandteil",
+        "Gut für Läufer die >5x/Woche trainieren"
+      ],
+      "trainingstypen": ["lockerer_dauerlauf", "langer_lauf", "tempo_dauerlauf", "schwellensteigerung", "cruise_intervals", "intervalle_lang"],
+      "wann_wechseln": "Wenn Volumen nicht hoch genug für diesen Ansatz",
+      "vorteile": ["Natürlichere Intensitätsverteilung", "Gut für hohe Volumina", "Weniger 'alles oder nichts'"],
+      "nachteile": ["Braucht hohes Wochenvolumen", "Z3-Grenze schwer zu halten", "Weniger VO2max-Reize"]
+    },
+    "threshold": {
+      "name": "Threshold (Canova)",
+      "kurzname": "Schwelle",
+      "philosophie": "Viel Schwellenarbeit und spezifische Renntempo-Blöcke. Aggressiver Ansatz für Wettkampfvorbereitung.",
+      "fuer_wen": "Wettkampforientierte Läufer, klares Zeitziel, gute aerobe Basis vorhanden",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": 60,
+        "z3_prozent": 20,
+        "z4_z5_prozent": 20
+      },
+      "regeln": [
+        "Schwellenläufe (Z4) sind das Herzstück",
+        "Spezifische Renntempo-Blöcke ab 8 Wochen vor dem Rennen",
+        "Progression: Erst Dauer der Schwellenblöcke steigern, dann Pace",
+        "Erholung zwischen harten Einheiten ist kritisch",
+        "Nur mit solider aerober Basis starten (CTL > 30)",
+        "Höheres Verletzungsrisiko – auf Warnsignale achten"
+      ],
+      "trainingstypen": ["lockerer_dauerlauf", "tempo_dauerlauf", "cruise_intervals", "renntempo_bloecke", "intervalle_lang", "langer_lauf_progressiv", "cut_down_lauf"],
+      "wann_wechseln": "Wenn CTL < 30 oder Verletzungsanzeichen",
+      "vorteile": ["Schnelle Leistungssteigerung", "Rennspezifisch", "Mentale Härte"],
+      "nachteile": ["Hohes Verletzungsrisiko", "Braucht gute Basis", "Ermüdung akkumuliert schnell"]
+    },
+    "norwegisch": {
+      "name": "Norwegisch (Ingebrigtsen-Methode)",
+      "kurzname": "Norwegisch",
+      "philosophie": "Doppel-Schwellen-Training: Viele Einheiten knapp unter/an der Schwelle bei hohem Gesamtvolumen. Laktat-gesteuert.",
+      "fuer_wen": "Sehr ambitionierte Läufer, viel verfügbare Trainingszeit, gute Basis",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": 65,
+        "z3_prozent": 25,
+        "z4_z5_prozent": 10
+      },
+      "regeln": [
+        "2x pro Woche Schwellen-Einheiten (Doppel-Threshold)",
+        "Schwellenarbeit bei exakt 2 mmol/l Laktat (knapp unter Schwelle)",
+        "Hohes Gesamtvolumen (60+ km/Woche)",
+        "Lange Intervalle an der Schwelle (5-10 min Blöcke)",
+        "Erholung zwischen Schwellen-Tagen: nur Z1",
+        "Braucht idealerweise Laktat-Messung oder sehr gute HF-Kenntnis"
+      ],
+      "trainingstypen": ["lockerer_dauerlauf", "langer_lauf", "doppel_schwelle", "cruise_intervals", "tempo_wechsel", "schwellensteigerung"],
+      "wann_wechseln": "Wenn Volumen < 50 km/Woche oder Erholung nicht ausreicht",
+      "vorteile": ["Sehr effektiv für Schwellenanhebung", "Weniger VO2max-Stress", "Nachhaltig bei gutem Volumen"],
+      "nachteile": ["Braucht hohes Volumen", "Schwer ohne Laktat-Messung", "Nicht für Anfänger"]
+    },
+    "adaptiv": {
+      "name": "Adaptiv (KI-gesteuert)",
+      "kurzname": "Adaptiv",
+      "philosophie": "Die KI analysiert deine Daten und wählt den besten Ansatz für die aktuelle Phase. Kann zwischen Methoden wechseln.",
+      "fuer_wen": "Alle – besonders wenn man unsicher ist welcher Ansatz passt",
+      "intensitaetsverteilung": {
+        "z1_z2_prozent": "variabel",
+        "z3_prozent": "variabel",
+        "z4_z5_prozent": "variabel"
+      },
+      "regeln": [
+        "KI entscheidet basierend auf: CTL, TSB, HRV, Aerobic Efficiency, Profil",
+        "Kann phasenweise zwischen Methoden wechseln",
+        "Anfangs: Maffetone-Ansatz bis Basis steht",
+        "Dann: Polarisiert für Aufbau",
+        "Wettkampfnah: Threshold-Elemente einbauen",
+        "Immer datengetrieben – nie Schema F"
+      ],
+      "trainingstypen": ["alle"],
+      "wann_wechseln": "Wenn du einen spezifischen Ansatz bevorzugst",
+      "vorteile": ["Maximal individuell", "Reagiert auf deine Daten", "Flexibel"],
+      "nachteile": ["Weniger vorhersehbar", "Erfordert Vertrauen in die KI"]
+    }
+  }
+}

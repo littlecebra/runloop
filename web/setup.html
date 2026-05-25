@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garmin Coach – Setup-Wizard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #a855f7;
+            --primary-light: #c084fc;
+            --primary-dark: #7c3aed;
+            --primary-subtle: rgba(168, 85, 247, 0.08);
+            --accent: #f43f5e;
+            --success: #10b981;
+            --bg-base: #09090b;
+            --bg-surface: #18181b;
+            --bg-elevated: #27272a;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: #27272a;
+            --border-hover: #3f3f46;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 32px 16px;
+        }
+
+        .wizard {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 32px; }
+
+        .step {
+            display: none;
+            animation: fadeIn 200ms ease;
+        }
+        .step.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-indicator {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 4px;
+            border-radius: 2px;
+            background: var(--bg-elevated);
+            transition: background 0.2s;
+        }
+        .step-dot.done { background: var(--primary); }
+        .step-dot.current { background: var(--primary-light); }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        input::placeholder { color: var(--text-muted); }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+
+        .btn-secondary {
+            background: var(--bg-elevated);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--text-primary); }
+
+        .btn-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+
+        .coach-option {
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .coach-option:hover { border-color: var(--primary); }
+        .coach-option.selected { border-color: var(--primary); background: var(--primary-subtle); }
+        .coach-option h3 { font-size: 0.85rem; margin-bottom: 4px; }
+        .coach-option p { font-size: 0.7rem; color: var(--text-muted); margin: 0; }
+
+        .day-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 4px;
+            user-select: none;
+        }
+        .day-toggle.active { border-color: var(--primary); background: var(--primary-subtle); color: var(--primary-light); }
+
+        .result-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .success-msg {
+            text-align: center;
+            padding: 32px;
+        }
+        .success-msg h2 { color: var(--success); margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <div class="wizard">
+        <h1>Garmin Coach Setup</h1>
+        <p class="subtitle">Konfiguriere dein Profil in 4 Schritten. Am Ende bekommst du die fertige Config-Datei.</p>
+
+        <div class="step-indicator">
+            <div class="step-dot current" id="dot-1"></div>
+            <div class="step-dot" id="dot-2"></div>
+            <div class="step-dot" id="dot-3"></div>
+            <div class="step-dot" id="dot-4"></div>
+        </div>
+
+        <!-- Step 1: Persönliche Daten -->
+        <div class="step active" id="step-1">
+            <div class="card">
+                <h2>Persönliche Daten</h2>
+                <p>Grundlegende Informationen für die Trainingsberechnung.</p>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="name" placeholder="Dein Name" value="">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Maximale Herzfrequenz</label>
+                        <input type="number" id="hf_max" placeholder="z.B. 198" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Ruheherzfrequenz</label>
+                        <input type="number" id="hf_ruhe" placeholder="z.B. 50" value="">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Laktatschwellen-HF</label>
+                        <input type="number" id="hf_laktat" placeholder="z.B. 172" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Aktuelles Gewicht (kg)</label>
+                        <input type="number" step="0.1" id="gewicht" placeholder="z.B. 82.0" value="">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Zielgewicht (kg)</label>
+                        <input type="number" step="0.1" id="gewicht_ziel" placeholder="z.B. 74.0" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Zielgewicht bis (Datum)</label>
+                        <input type="date" id="gewicht_datum" value="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <div></div>
+                <button class="btn btn-primary" onclick="nextStep(2)">Weiter</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Training -->
+        <div class="step" id="step-2">
+            <div class="card">
+                <h2>Trainings-Verfügbarkeit</h2>
+                <p>Wie viele Tage pro Woche kannst du laufen?</p>
+
+                <div class="form-group">
+                    <label>Lauftage pro Woche</label>
+                    <select id="lauftage">
+                        <option value="2">2 Tage</option>
+                        <option value="3" selected>3 Tage</option>
+                        <option value="4">4 Tage</option>
+                        <option value="5">5 Tage</option>
+                        <option value="6">6 Tage</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Bevorzugte Lauftage (klicke zum Auswählen)</label>
+                    <div id="tage-auswahl">
+                        <span class="day-toggle" data-day="montag">Mo</span>
+                        <span class="day-toggle active" data-day="dienstag">Di</span>
+                        <span class="day-toggle" data-day="mittwoch">Mi</span>
+                        <span class="day-toggle active" data-day="donnerstag">Do</span>
+                        <span class="day-toggle" data-day="freitag">Fr</span>
+                        <span class="day-toggle" data-day="samstag">Sa</span>
+                        <span class="day-toggle active" data-day="sonntag">So</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Max. Dauer Werktag (min)</label>
+                        <input type="number" id="max_werktag" value="60">
+                    </div>
+                    <div class="form-group">
+                        <label>Max. Dauer Wochenende (min)</label>
+                        <input type="number" id="max_wochenende" value="120">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-secondary" onclick="nextStep(1)">Zurück</button>
+                <button class="btn btn-primary" onclick="nextStep(3)">Weiter</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Coach-Typ & Zielrennen -->
+        <div class="step" id="step-3">
+            <div class="card">
+                <h2>Coach-Typ wählen</h2>
+                <p>Welche Trainingsphilosophie soll der Coach verfolgen?</p>
+
+                <div class="coach-option selected" data-coach="adaptiv" onclick="selectCoach(this)">
+                    <h3>Adaptiv (KI-gesteuert) – Empfohlen</h3>
+                    <p>KI wählt den besten Ansatz basierend auf deinen Daten. Wechselt zwischen Methoden je nach Phase.</p>
+                </div>
+                <div class="coach-option" data-coach="maffetone" onclick="selectCoach(this)">
+                    <h3>Maffetone (MAF)</h3>
+                    <p>100% aerob. Nur unter MAF-HF (180 - Alter). Ideal für Anfänger oder Gewichtsreduktion.</p>
+                </div>
+                <div class="coach-option" data-coach="polarisiert" onclick="selectCoach(this)">
+                    <h3>Polarisiert (80/20)</h3>
+                    <p>80% leicht, 20% hart. Zone 3 vermeiden. Wissenschaftlich am besten belegt.</p>
+                </div>
+                <div class="coach-option" data-coach="pyramidal" onclick="selectCoach(this)">
+                    <h3>Pyramidal</h3>
+                    <p>75% Z1, 15% Z2-Z3, 10% Z4-Z5. Braucht hohes Volumen (50+ km/Woche).</p>
+                </div>
+                <div class="coach-option" data-coach="threshold" onclick="selectCoach(this)">
+                    <h3>Threshold (Canova)</h3>
+                    <p>Viel Schwellenarbeit. Aggressiv, nur mit guter Basis (CTL > 30).</p>
+                </div>
+                <div class="coach-option" data-coach="norwegisch" onclick="selectCoach(this)">
+                    <h3>Norwegisch</h3>
+                    <p>Doppel-Schwellen bei hohem Volumen (60+ km/Woche). Für sehr Ambitionierte.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Zielrennen</h2>
+                <p>Optional: Dein nächstes Rennen für die Periodisierung.</p>
+
+                <div class="form-row-3">
+                    <div class="form-group">
+                        <label>Rennen</label>
+                        <select id="rennen_typ">
+                            <option value="5K">5 km</option>
+                            <option value="10K">10 km</option>
+                            <option value="Halbmarathon" selected>Halbmarathon</option>
+                            <option value="Marathon">Marathon</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Datum</label>
+                        <input type="date" id="rennen_datum" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Zielzeit (h:mm:ss)</label>
+                        <input type="text" id="rennen_zeit" placeholder="1:26:00" value="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-secondary" onclick="nextStep(2)">Zurück</button>
+                <button class="btn btn-primary" onclick="generateConfig()">Config generieren</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Ergebnis -->
+        <div class="step" id="step-4">
+            <div class="card">
+                <h2>Deine Config ist fertig</h2>
+                <p>Speichere diese Datei als <code>config/athlete.json</code> in deinem Projekt.</p>
+                <div class="result-box" id="result-json"></div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-secondary" onclick="nextStep(3)">Zurück</button>
+                <button class="btn btn-primary" onclick="downloadConfig()">Als Datei herunterladen</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let currentStep = 1;
+    let selectedCoach = 'adaptiv';
+    let configJson = '';
+
+    // Tag-Toggles
+    document.querySelectorAll('.day-toggle').forEach(el => {
+        el.addEventListener('click', () => el.classList.toggle('active'));
+    });
+
+    function selectCoach(el) {
+        document.querySelectorAll('.coach-option').forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+        selectedCoach = el.dataset.coach;
+    }
+
+    function nextStep(step) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step-' + step).classList.add('active');
+
+        document.querySelectorAll('.step-dot').forEach((d, i) => {
+            d.className = 'step-dot';
+            if (i + 1 < step) d.classList.add('done');
+            if (i + 1 === step) d.classList.add('current');
+        });
+
+        currentStep = step;
+    }
+
+    function zeitZuSekunden(zeitStr) {
+        if (!zeitStr) return 0;
+        const teile = zeitStr.split(':');
+        if (teile.length === 3) return parseInt(teile[0]) * 3600 + parseInt(teile[1]) * 60 + parseInt(teile[2]);
+        if (teile.length === 2) return parseInt(teile[0]) * 60 + parseInt(teile[1]);
+        return 0;
+    }
+
+    function generateConfig() {
+        const hfMax = parseInt(document.getElementById('hf_max').value) || 190;
+        const aktiveTage = [...document.querySelectorAll('.day-toggle.active')].map(e => e.dataset.day);
+
+        const rennenDistanz = {
+            '5K': 5.0, '10K': 10.0, 'Halbmarathon': 21.1, 'Marathon': 42.195
+        };
+        const rennenTyp = document.getElementById('rennen_typ').value;
+        const rennenZeit = document.getElementById('rennen_zeit').value;
+        const rennenSek = zeitZuSekunden(rennenZeit);
+        const zielPace = rennenSek > 0 ? Math.round(rennenSek / rennenDistanz[rennenTyp]) : 0;
+
+        const config = {
+            "_kommentar": "Generiert vom Garmin Coach Setup-Wizard",
+            "name": document.getElementById('name').value || "Athlet",
+            "coach_typ": {
+                "_hinweis": "Wählbar: maffetone, polarisiert, pyramidal, threshold, norwegisch, adaptiv",
+                "aktiv": selectedCoach,
+                "beschreibung": getCoachBeschreibung(selectedCoach)
+            },
+            "herzfrequenz": {
+                "max": hfMax,
+                "ruhe": parseInt(document.getElementById('hf_ruhe').value) || 50,
+                "laktatschwelle": parseInt(document.getElementById('hf_laktat').value) || Math.round(hfMax * 0.87),
+                "zonen": {
+                    "_hinweis": "Prozent der maximalen Herzfrequenz",
+                    "Z1": { "min_prozent": 50, "max_prozent": 60, "bezeichnung": "Regeneration" },
+                    "Z2": { "min_prozent": 60, "max_prozent": 70, "bezeichnung": "Grundlagenausdauer" },
+                    "Z3": { "min_prozent": 70, "max_prozent": 80, "bezeichnung": "Aerobe Schwelle" },
+                    "Z4": { "min_prozent": 80, "max_prozent": 90, "bezeichnung": "Anaerobe Schwelle" },
+                    "Z5": { "min_prozent": 90, "max_prozent": 100, "bezeichnung": "Maximale Belastung" }
+                }
+            },
+            "pace_zonen": {
+                "_hinweis": "Pace in Sekunden pro Kilometer – wird nach ersten Läufen automatisch angepasst",
+                "Z1": { "min_sek_pro_km": 390, "max_sek_pro_km": 450, "bezeichnung": "Regeneration" },
+                "Z2": { "min_sek_pro_km": 345, "max_sek_pro_km": 390, "bezeichnung": "Grundlage" },
+                "Z3": { "min_sek_pro_km": 315, "max_sek_pro_km": 345, "bezeichnung": "Tempo" },
+                "Z4": { "min_sek_pro_km": 285, "max_sek_pro_km": 315, "bezeichnung": "Schwelle" },
+                "Z5": { "min_sek_pro_km": 240, "max_sek_pro_km": 285, "bezeichnung": "Intervall" }
+            },
+            "training": {
+                "lauftage_pro_woche": parseInt(document.getElementById('lauftage').value),
+                "bevorzugte_tage": aktiveTage,
+                "langer_lauf_tag": aktiveTage.includes('sonntag') ? 'sonntag' : aktiveTage.includes('samstag') ? 'samstag' : aktiveTage[aktiveTage.length - 1],
+                "intensitaet_tag": aktiveTage.length > 1 ? aktiveTage[Math.floor(aktiveTage.length / 2)] : aktiveTage[0],
+                "max_dauer_min_werktag": parseInt(document.getElementById('max_werktag').value) || 60,
+                "max_dauer_min_wochenende": parseInt(document.getElementById('max_wochenende').value) || 120
+            },
+            "gewicht": {
+                "aktuell_kg": parseFloat(document.getElementById('gewicht').value) || 75.0,
+                "ziel_kg": parseFloat(document.getElementById('gewicht_ziel').value) || 70.0,
+                "ziel_datum": document.getElementById('gewicht_datum').value || "2026-12-31"
+            },
+            "zielrennen": {
+                "name": rennenTyp,
+                "datum": document.getElementById('rennen_datum').value || "2026-12-31",
+                "distanz_km": rennenDistanz[rennenTyp],
+                "zielzeit": rennenZeit || "2:00:00",
+                "ziel_pace_sek_pro_km": zielPace
+            }
+        };
+
+        configJson = JSON.stringify(config, null, 2);
+        document.getElementById('result-json').textContent = configJson;
+        nextStep(4);
+    }
+
+    function getCoachBeschreibung(typ) {
+        const map = {
+            'adaptiv': 'KI entscheidet basierend auf Daten, welcher Ansatz gerade am besten passt',
+            'maffetone': 'Nur unter MAF-HF laufen bis aerobe Basis steht. 100% Zone 1-2.',
+            'polarisiert': '80% leicht (Z1-Z2), 20% hart (Z4-Z5). Zone 3 vermeiden.',
+            'pyramidal': '75% Z1, 15% Z2-Z3, 10% Z4-Z5. Hohes Volumen nötig.',
+            'threshold': 'Schwellenarbeit als Herzstück. Nur mit guter Basis starten.',
+            'norwegisch': 'Doppel-Schwellen bei hohem Volumen. Für sehr Ambitionierte.'
+        };
+        return map[typ] || '';
+    }
+
+    function downloadConfig() {
+        const blob = new Blob([configJson], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'athlete.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+    </script>
+</body>
+</html>
