@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garmin Coach – Setup-Wizard</title>
+    <title>RunLoop – Setup-Wizard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -226,7 +226,7 @@
 </head>
 <body>
     <div class="wizard">
-        <h1>Garmin Coach Setup</h1>
+        <h1>RunLoop Setup</h1>
         <p class="subtitle">Konfiguriere dein Profil in 4 Schritten. Am Ende bekommst du die fertige Config-Datei.</p>
 
         <div class="step-indicator">
@@ -463,7 +463,7 @@
         const zielPace = rennenSek > 0 ? Math.round(rennenSek / rennenDistanz[rennenTyp]) : 0;
 
         const config = {
-            "_kommentar": "Generiert vom Garmin Coach Setup-Wizard",
+            "_kommentar": "Generiert vom RunLoop Setup-Wizard",
             "name": document.getElementById('name').value || "Athlet",
             "coach_typ": {
                 "_hinweis": "Wählbar: maffetone, polarisiert, pyramidal, threshold, norwegisch, adaptiv",

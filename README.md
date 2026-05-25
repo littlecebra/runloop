@@ -2,6 +2,8 @@
 
 Ein KI-gestütztes, adaptives Trainingsanalyse-System, das über den [Garmin MCP Server](https://github.com/Taxuspt/garmin_mcp) Trainingsdaten abruft, analysiert und einen personalisierten Trainingsplan erstellt.
 
+![RunLoop Dashboard](docs/screenshot.png)
+
 ## Schnellstart
 
 ### Voraussetzungen
