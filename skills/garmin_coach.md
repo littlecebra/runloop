@@ -303,9 +303,29 @@ Wenn der Nutzer sagt: *„Neuer Lauf heute, analysiere und aktualisiere alles."*
 3. **Profil aktualisieren**: `data/athlete_profile.json` mit neuen Erkenntnissen
 4. **Adaptive Entscheidung**: Limitierenden Faktor identifizieren, Reiz wählen
 5. **Plan anpassen**: `data/plan.json` mit begründeten Einheiten füllen
-6. **Report generieren**: `scripts/generate_report.py` → `web/index.html`
-7. **Zusammenfassung ausgeben**: Coach-Kommentar + nächste Einheit + Begründung
-8. **Optional** (nur auf Anfrage): Nächsten Workout zu Garmin pushen
+6. **Coach-Historie schreiben**: Die vollständige Analyse (Erkenntnisse, Probleme, Empfehlung, Kennzahlen) in `data/coach_history.json` als neuen Eintrag speichern – IMMER, bei JEDER Analyse
+7. **Report generieren**: `scripts/generate_report.py` → `web/index.html`
+8. **Zusammenfassung ausgeben**: Coach-Kommentar + nächste Einheit + Begründung
+9. **Optional** (nur auf Anfrage): Nächsten Workout zu Garmin pushen
+
+### WICHTIG: Coach-Historie
+
+Die detaillierte Analyse die im Chat ausgegeben wird, MUSS immer auch in `data/coach_history.json` geschrieben werden. Das ist das Gedächtnis des Systems. Jeder Eintrag enthält:
+
+```json
+{
+  "datum": "2026-05-26",
+  "titel": "Kurzer, prägnanter Titel des Laufs/der Analyse",
+  "zusammenfassung": "1-2 Sätze: Was wurde gemacht, Kern-Ergebnis",
+  "erkenntnisse": ["Was gut war", "Was sich verbessert hat", "..."],
+  "probleme": ["Was nicht optimal war", "Worauf achten", "..."],
+  "empfehlung": "Konkrete Handlungsempfehlung für die nächsten Tage",
+  "kennzahlen": {"ctl": 18.7, "atl": 36.1, "tsb": -17.4, "wochen_km": 17.2},
+  "plan_anpassung": "Was am Plan geändert wurde und warum"
+}
+```
+
+Ohne diesen Schritt geht die Analyse verloren und erscheint nicht im Dashboard.
 
 ## Wichtig: Keine Wiederholung
 

@@ -230,7 +230,7 @@ header {
     border: 1px solid var(--border);
     transition: border-color var(--transition-base), box-shadow var(--transition-slow);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .card::before {
@@ -515,6 +515,9 @@ header {
 
 /* KPI Tooltips */
 .kpi.has-tooltip { position: relative; }
+.kpi.has-tooltip:hover, .kpi.has-tooltip:focus, .kpi.has-tooltip:focus-within {
+    z-index: 200;
+}
 .kpi-info {
     position: absolute;
     top: 8px;
@@ -554,7 +557,7 @@ header {
     visibility: hidden;
     pointer-events: none;
     transition: all var(--transition-base);
-    z-index: 100;
+    z-index: 9999;
 }
 .kpi-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--border-hover); }
 .kpi.has-tooltip:hover .kpi-tooltip, .kpi.has-tooltip:focus .kpi-tooltip, .kpi.has-tooltip:focus-within .kpi-tooltip { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) scale(1); }
