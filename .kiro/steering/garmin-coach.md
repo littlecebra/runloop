@@ -14,6 +14,7 @@ Dieses Projekt nutzt den Garmin MCP Server um Trainingsdaten abzurufen, zu analy
 
 - **skills/garmin_data.md** – Daten von Garmin abrufen, normalisieren, speichern. Nutze diesen Skill wenn Daten geholt, synchronisiert oder Workouts gepusht werden sollen.
 - **skills/garmin_coach.md** – Trainingsanalyse, adaptive Plansteuerung, Coach-Logik. Nutze diesen Skill wenn Trainingspläne erstellt, angepasst oder Analysen durchgeführt werden sollen.
+- **skills/garmin_strength.md** – Kräftigung, Mobilität, Beschwerdemanagement. Nutze diesen Skill wenn der Nutzer nach Übungen fragt, Beschwerden meldet, oder Kraft/Mobility-Routinen benötigt.
 
 ## Verfügbare Steering (automatisch geladen)
 

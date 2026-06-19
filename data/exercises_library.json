@@ -1,0 +1,674 @@
+{
+  "_kommentar": "Vollstaendige Uebungsbibliothek mit detaillierten Anleitungen",
+  "uebungen": [
+    {
+      "id": "leg-swings",
+      "name": "Leg Swings",
+      "kategorie": "Pre-Run",
+      "zielbereich": "Huefte, Beinrueckseite",
+      "level": "Anfaenger",
+      "wiederholungen": "10 pro Seite",
+      "anleitung": "Seitlich an eine Wand stellen, eine Hand zur Stuetze. Das wandferne Bein locker vor und zurueck schwingen lassen. Bewegung kommt aus der Huefte, Bein bleibt entspannt. Standbein leicht gebeugt.",
+      "worauf_achten": [
+        "Oberkoerper bleibt ruhig und aufrecht",
+        "Schwung kommt aus der Huefte, nicht aus dem Ruecken",
+        "Standbein leicht gebeugt"
+      ],
+      "haeufige_fehler": [
+        "Zu viel Oberkoerperbewegung",
+        "Bein verkrampft hochgezogen statt locker geschwungen"
+      ],
+      "varianten": [
+        "Frontal: Bein seitlich schwingen"
+      ]
+    },
+    {
+      "id": "walking-lunges",
+      "name": "Walking Lunges",
+      "kategorie": "Pre-Run",
+      "zielbereich": "Huefte, Quadrizeps, Gluteus",
+      "level": "Anfaenger",
+      "wiederholungen": "8 pro Seite",
+      "anleitung": "Grosse Schritte vorwaerts. Hinteres Knie Richtung Boden senken. Oberkoerper aufrecht. Vorderes Knie bleibt hinter der Fussspitze. Aus der Ferse hochdruecken.",
+      "worauf_achten": [
+        "Knie knickt nicht nach innen",
+        "Oberkoerper aufrecht",
+        "Grosse Schritte",
+        "Core angespannt"
+      ],
+      "haeufige_fehler": [
+        "Knie ueber Fussspitze",
+        "Oberkoerper kippt vor"
+      ],
+      "varianten": [
+        "Mit Rotation des Oberkoerpers",
+        "Rueckwaerts-Lunges"
+      ]
+    },
+    {
+      "id": "high-knees",
+      "name": "High Knees",
+      "kategorie": "Pre-Run",
+      "zielbereich": "Hueftbeuger, Koordination",
+      "level": "Anfaenger",
+      "wiederholungen": "20 Sekunden",
+      "anleitung": "Auf der Stelle laufen, Knie abwechselnd huefthoch heben. Arme aktiv mitschwingen. Auf Fussballen landen.",
+      "worauf_achten": [
+        "Knie mindestens huefthoch",
+        "Arme schwingen mit",
+        "Landung auf Fussballen"
+      ],
+      "haeufige_fehler": [
+        "Knie nicht hoch genug",
+        "Oberkoerper lehnt zurueck"
+      ],
+      "varianten": [
+        "Langsam (Fokus Hoehe)",
+        "Schnell (Fokus Frequenz)"
+      ]
+    },
+    {
+      "id": "huefte-kreisen",
+      "name": "Huefte kreisen",
+      "kategorie": "Pre-Run",
+      "zielbereich": "Hueftgelenk-Mobilitaet",
+      "level": "Anfaenger",
+      "wiederholungen": "5 pro Richtung pro Seite",
+      "anleitung": "Einbeinig stehen, freies Bein angewinkelt anheben und im Kreis fuehren. Erst nach aussen, dann nach innen. Kreise starten klein, werden groesser.",
+      "worauf_achten": [
+        "Becken bleibt stabil",
+        "Kreise aus der Huefte, nicht dem Knie",
+        "Beide Richtungen"
+      ],
+      "haeufige_fehler": [
+        "Becken schwingt mit",
+        "Zu schnell/unkontrolliert"
+      ],
+      "varianten": [
+        "Grosse Kreise mit gestrecktem Bein"
+      ]
+    },
+    {
+      "id": "squat-to-stand",
+      "name": "Squat to Stand",
+      "kategorie": "Pre-Run",
+      "zielbereich": "Hamstrings, Huefte",
+      "level": "Anfaenger",
+      "wiederholungen": "5x",
+      "anleitung": "Tiefe Hocke, Haende greifen Zehen. Beine langsam strecken, Haende bleiben an Zehen. Dehnung in Beinrueckseite spueren. Zurueck in Hocke.",
+      "worauf_achten": [
+        "Haende bleiben an Zehen",
+        "Langsam strecken",
+        "In Hocke: Brust hoch"
+      ],
+      "haeufige_fehler": [
+        "Haende loslassen",
+        "Zu schnell"
+      ],
+      "varianten": [
+        "Haende am Boden statt Zehen"
+      ]
+    },
+    {
+      "id": "wadendehnung",
+      "name": "Wadendehnung (Wand)",
+      "kategorie": "Post-Run",
+      "zielbereich": "Gastrocnemius, Soleus",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Haende an die Wand, ein Bein gestreckt nach hinten, Ferse fest am Boden. Huefte nach vorne schieben bis Dehnung in der Wade spuerbar. 60 Sekunden halten.",
+      "worauf_achten": [
+        "Ferse bleibt am Boden",
+        "Hinteres Bein gestreckt (Gastrocnemius) oder leicht gebeugt (Soleus)",
+        "Gleichmaessig atmen"
+      ],
+      "haeufige_fehler": [
+        "Ferse hebt ab",
+        "Fuss dreht nach aussen"
+      ],
+      "varianten": [
+        "Knie leicht gebeugt = dehnt Soleus statt Gastrocnemius"
+      ]
+    },
+    {
+      "id": "quadrizeps-dehnung",
+      "name": "Quadrizeps-Dehnung",
+      "kategorie": "Post-Run",
+      "zielbereich": "Quadrizeps, Hueftbeuger",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Im Stehen Fuss zum Gesaess ziehen. Knie zeigt nach unten (nicht zur Seite). Huefte leicht nach vorne schieben fuer mehr Dehnung. Gleichgewicht ggf. an Wand halten.",
+      "worauf_achten": [
+        "Knie zeigt senkrecht nach unten",
+        "Huefte nach vorne schieben",
+        "Knie bleibt nah am Standbein"
+      ],
+      "haeufige_fehler": [
+        "Knie geht zur Seite",
+        "Hohlkreuz statt Huefte vorschieben"
+      ],
+      "varianten": [
+        "Liegend (Seitlage) fuer mehr Kontrolle"
+      ]
+    },
+    {
+      "id": "hip-flexor-stretch",
+      "name": "Kneeling Hip Flexor Stretch",
+      "kategorie": "Post-Run",
+      "zielbereich": "Hueftbeuger, Psoas, Iliacus",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Ausfallschritt am Boden, hinteres Knie abgelegt (auf Handtuch/Matte). Huefte aktiv nach vorne schieben. Dehnung an der Vorderseite der hinteren Huefte. Oberkoerper aufrecht.",
+      "worauf_achten": [
+        "Huefte AKTIV nach vorne druecken",
+        "Gesaess der hinteren Seite anspannen",
+        "Kein Hohlkreuz",
+        "Oberkoerper bleibt aufrecht"
+      ],
+      "haeufige_fehler": [
+        "Hohlkreuz machen statt Huefte vorschieben",
+        "Zu weit vorne mit dem Oberkoerper"
+      ],
+      "varianten": [
+        "Arm der gedehnten Seite nach oben = mehr Dehnung",
+        "Mit Rotation = dehnt auch den Sartorius"
+      ]
+    },
+    {
+      "id": "pigeon-stretch",
+      "name": "Pigeon Stretch",
+      "kategorie": "Post-Run",
+      "zielbereich": "Piriformis, Hueftaussenrotation, Gluteus",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Vorderes Bein angewinkelt vor dem Koerper ablegen (Schienbein moeglichst parallel zur Matte). Hinteres Bein gestreckt nach hinten. Oberkoerper langsam nach vorne lehnen. Dehnung im Gesaess/Huefte des vorderen Beins.",
+      "worauf_achten": [
+        "Becken bleibt gerade (nicht zur Seite kippen)",
+        "Nur so weit nach vorne lehnen wie schmerzfrei",
+        "Vorderes Schienbein moeglichst parallel (nicht nah am Koerper)"
+      ],
+      "haeufige_fehler": [
+        "Becken kippt zur Seite",
+        "Zu aggressiv in die Dehnung gehen"
+      ],
+      "varianten": [
+        "Liegend auf dem Ruecken (Figure-4 Stretch) = schonender"
+      ]
+    },
+    {
+      "id": "hamstring-stretch",
+      "name": "Hamstring-Stretch (stehend)",
+      "kategorie": "Post-Run",
+      "zielbereich": "Ischiocrurale Muskulatur",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Ferse auf Erhoehung (Bank, Treppe, ca. Huefthoehe). Bein gestreckt. Oberkoerper mit GERADEM Ruecken nach vorne neigen. Dehnung in der Beinrueckseite.",
+      "worauf_achten": [
+        "Ruecken bleibt gerade - NICHT runden",
+        "Bewegung kommt aus der Huefte",
+        "Nicht am Bein ziehen oder federn"
+      ],
+      "haeufige_fehler": [
+        "Ruecken rundet",
+        "Zu hohe Erhoehung gewaehlt",
+        "Federn statt halten"
+      ],
+      "varianten": [
+        "Am Boden sitzend",
+        "Mit Handtuch um den Fuss (liegend)"
+      ]
+    },
+    {
+      "id": "sartorius-dehnung",
+      "name": "Sartorius-Dehnung (kniend)",
+      "kategorie": "Rehab",
+      "zielbereich": "Musculus Sartorius, Hueftbeuger",
+      "level": "Anfaenger",
+      "wiederholungen": "60 Sek pro Seite, 2x",
+      "anleitung": "Kniender Ausfallschritt (hinteres Knie am Boden). Huefte nach vorne schieben UND gleichzeitig leicht nach INNEN rotieren. Die Dehnung ist an der vorderen Huefte und der Aussenseite des Oberschenkels spuerbar. Anders als normaler Hip Flexor Stretch: Die Innenrotation trifft gezielt den Sartorius.",
+      "worauf_achten": [
+        "Huefte nach vorne UND leicht innen rotieren - das ist der Unterschied",
+        "Gesaess anspannen fuer mehr Dehnung",
+        "Dehnung soll im vorderen/aeusseren Oberschenkel spuerbar sein",
+        "Kein Schmerz - nur Dehnung!",
+        "60 Sekunden halten, gleichmaessig atmen"
+      ],
+      "haeufige_fehler": [
+        "Nur nach vorne schieben ohne Rotation",
+        "Hohlkreuz machen",
+        "Zu aggressiv in die Dehnung"
+      ],
+      "varianten": [
+        "Im Stehen an einer Treppe (Fuss hinten erhoeht)",
+        "Liegend auf der Seite mit Fuss zum Gesaess gezogen"
+      ]
+    },
+    {
+      "id": "hueftbeuger-seitenneigung",
+      "name": "Hueftbeuger-Stretch mit Seitenneigung",
+      "kategorie": "Rehab",
+      "zielbereich": "Sartorius, Tensor fasciae latae, Psoas",
+      "level": "Anfaenger",
+      "wiederholungen": "45 Sek pro Seite, 2x",
+      "anleitung": "Kniender Ausfallschritt. Arm der gedehnten Seite (hinten) nach oben strecken. Oberkoerper zur GEGENSEITE neigen. Das intensiviert die Dehnung entlang der gesamten Faszienkette von Huefte bis Rumpf.",
+      "worauf_achten": [
+        "Arm wirklich ganz nach oben strecken",
+        "Seitenneigung zur Gegenseite - nicht nach vorne/hinten",
+        "Huefte bleibt nach vorne geschoben",
+        "Dehnung entlang der gesamten Seite spueren"
+      ],
+      "haeufige_fehler": [
+        "Sich nach vorne lehnen statt zur Seite",
+        "Arm nicht gestreckt genug",
+        "Huefte faellt zurueck"
+      ],
+      "varianten": [
+        "Ohne Arm-Strecken (einfacher)",
+        "Mit leichter Rotation dazu (fortgeschritten)"
+      ]
+    },
+    {
+      "id": "foam-rolling-sartorius",
+      "name": "Foam Rolling Quadrizeps/Sartorius",
+      "kategorie": "Rehab",
+      "zielbereich": "Quadrizeps, Sartorius, Faszien",
+      "level": "Anfaenger",
+      "wiederholungen": "2 min pro Seite",
+      "anleitung": "Bauchlage auf Faszienrolle, Rolle unter dem Oberschenkel. Von der Huefte langsam bis zum Knie rollen. WICHTIG: Koerper leicht zur AUSSENSEITE drehen - dort liegt der Sartorius (schraeg von Huefte-aussen nach Knie-innen). An schmerzhaften Stellen 20 Sekunden verweilen.",
+      "worauf_achten": [
+        "Nicht direkt auf dem Knochen rollen (Huefte/Knie aussparen)",
+        "Koerper zur Seite drehen um den Sartorius zu treffen",
+        "Langsam rollen - nicht schnell hin und her",
+        "An Triggerpunkten 20 Sek verweilen",
+        "Atmung: Nicht die Luft anhalten"
+      ],
+      "haeufige_fehler": [
+        "Zu schnell rollen (bringt nichts)",
+        "Nur geradeaus rollen (trifft Sartorius nicht)",
+        "Zu viel Druck am Anfang"
+      ],
+      "varianten": [
+        "Lacrosse-Ball fuer punktuelleren Druck",
+        "Vibrierende Faszienrolle fuer tiefere Wirkung"
+      ]
+    },
+    {
+      "id": "clamshells",
+      "name": "Clamshells (mit Band)",
+      "kategorie": "Kraft",
+      "zielbereich": "Gluteus medius, Hueftaussenrotatoren",
+      "level": "Anfaenger",
+      "wiederholungen": "3x15 pro Seite",
+      "anleitung": "Seitlage, Knie ca. 90 Grad angewinkelt, Fuesse bleiben zusammen. Widerstandsband ueber beiden Knien. Oberes Knie oeffnen wie eine Muschel - Fuesse bleiben zusammen. Langsam oeffnen, 1 Sek oben halten, langsam schliessen.",
+      "worauf_achten": [
+        "Becken bleibt STABIL - nicht nach hinten kippen",
+        "Fuesse bleiben zusammen",
+        "Bewegung kommt NUR aus der Huefte",
+        "Oben 1 Sek halten",
+        "Langsam und kontrolliert"
+      ],
+      "haeufige_fehler": [
+        "Becken kippt nach hinten (= Kompensation, Gluteus arbeitet nicht)",
+        "Zu schnell",
+        "Band zu leicht (kein Reiz)"
+      ],
+      "varianten": [
+        "Ohne Band (Einstieg)",
+        "In Bruecken-Position (fortgeschritten)",
+        "Stehend mit Band (funktioneller)"
+      ]
+    },
+    {
+      "id": "einbeinige-bruecke",
+      "name": "Einbeinige Bruecke",
+      "kategorie": "Kraft",
+      "zielbereich": "Gluteus maximus, Hueftextension, Core",
+      "level": "Mittel",
+      "wiederholungen": "3x12 pro Seite",
+      "anleitung": "Rueckenlage, ein Bein angestellt (Fuss flach am Boden), anderes Bein gestreckt nach oben oder angewinkelt angehoben. Huefte nach oben druecken bis Koerper eine gerade Linie bildet. Oben 2-3 Sekunden halten. Langsam absenken, NICHT ablegen.",
+      "worauf_achten": [
+        "Koerper bildet oben eine gerade Linie (nicht ueberstrecken!)",
+        "Druck kommt aus der FERSE, nicht den Zehen",
+        "Oben 2-3 Sek halten",
+        "Becken bleibt gerade (nicht zur Seite kippen)",
+        "Core die ganze Zeit angespannt"
+      ],
+      "haeufige_fehler": [
+        "Huefte ueberstrecken (Hohlkreuz)",
+        "Becken kippt zur Seite des freien Beins",
+        "Zu schnell, kein Halten oben"
+      ],
+      "varianten": [
+        "Beidbeinig (einfacher)",
+        "Fuesse auf Erhoehung (schwieriger)",
+        "Mit Gewicht auf der Huefte (fortgeschritten)"
+      ]
+    },
+    {
+      "id": "90-90-hip-rotation",
+      "name": "90/90 Hip Rotation",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Hueftgelenk, Innen-/Aussenrotation",
+      "level": "Anfaenger",
+      "wiederholungen": "2 min wechselnd",
+      "anleitung": "Auf dem Boden sitzen, beide Beine 90 Grad angewinkelt (ein Bein vorne, eins zur Seite/hinten). Knie langsam nach innen und aussen rotieren lassen - beide Beine wechseln gleichzeitig die Position. Oberkoerper bleibt aufrecht.",
+      "worauf_achten": [
+        "Beide Knie beruehren den Boden (oder so nah wie moeglich)",
+        "Oberkoerper bleibt aufrecht",
+        "Langsam und kontrolliert wechseln",
+        "Nicht mit Kraft druecken - Schwerkraft nutzen"
+      ],
+      "haeufige_fehler": [
+        "Mit Haenden nachhelfen/druecken",
+        "Zu schnell wechseln",
+        "Oberkoerper lehnt sich zur Seite"
+      ],
+      "varianten": [
+        "Nur eine Seite halten (30 Sek statisch)",
+        "Im Wechsel mit Vorbeuge (mehr Dehnung)"
+      ]
+    },
+    {
+      "id": "seitlicher-plank",
+      "name": "Seitlicher Plank",
+      "kategorie": "Kraft",
+      "zielbereich": "Obliques, Core, Hueftstabilitaet",
+      "level": "Anfaenger",
+      "wiederholungen": "3x30 Sek pro Seite",
+      "anleitung": "Auf den Unterarm stuetzen, Ellbogen unter der Schulter. Koerper bildet eine gerade Linie von Kopf bis Fuss. Huefte NICHT absinken lassen. Obere Hand auf die Huefte oder nach oben gestreckt.",
+      "worauf_achten": [
+        "Hufte bildet gerade Linie (nicht durchhaengen!)",
+        "Ellbogen direkt unter der Schulter",
+        "Schulter weg vom Ohr (nicht hochziehen)",
+        "Gleichmaessig atmen"
+      ],
+      "haeufige_fehler": [
+        "Huefte sinkt ab",
+        "Koerper rotiert nach vorne/hinten",
+        "Schulter hochgezogen"
+      ],
+      "varianten": [
+        "Auf den Knien (einfacher)",
+        "Oberes Bein anheben (schwieriger)",
+        "Mit Hip Dips (dynamisch)"
+      ]
+    },
+    {
+      "id": "dead-bug",
+      "name": "Dead Bug",
+      "kategorie": "Kraft",
+      "zielbereich": "Core, Anti-Extension, Koordination",
+      "level": "Anfaenger",
+      "wiederholungen": "3x10 pro Seite",
+      "anleitung": "Rueckenlage, Arme zur Decke gestreckt, Beine im 90-Grad-Winkel angehoben. Gegenueberliegenden Arm und Bein gleichzeitig langsam strecken (Arm ueber den Kopf, Bein nach vorne). Ruecken bleibt FLACH am Boden. Zurueck zur Mitte, andere Seite.",
+      "worauf_achten": [
+        "UNTERER RUECKEN bleibt die ganze Zeit am Boden - DAS ist der Punkt!",
+        "Langsam bewegen (3 Sek pro Seite)",
+        "Ausatmen beim Strecken",
+        "Wenn Ruecken sich hebt: Bewegung kleiner machen"
+      ],
+      "haeufige_fehler": [
+        "Unterer Ruecken hebt sich vom Boden",
+        "Zu schnell",
+        "Bein zu weit unten (ueberfordert den Core)"
+      ],
+      "varianten": [
+        "Nur Beine bewegen, Arme bleiben oben (einfacher)",
+        "Mit Ball zwischen Haenden und Knien (Feedback)",
+        "Bein nur leicht strecken (Regression)"
+      ]
+    },
+    {
+      "id": "einbein-kreuzheben",
+      "name": "Einbeiniges Rumaenisches Kreuzheben",
+      "kategorie": "Kraft",
+      "zielbereich": "Hamstrings, Gluteus, Balance",
+      "level": "Mittel",
+      "wiederholungen": "3x10 pro Seite",
+      "anleitung": "Auf einem Bein stehen. Oberkoerper langsam nach vorne kippen, freies Bein geht gleichzeitig nach hinten - Koerper bildet ein T. Ruecken bleibt GERADE. Zurueck in den Stand.",
+      "worauf_achten": [
+        "Ruecken GERADE halten (nicht runden!)",
+        "Huefte bleibt gerade (nicht aufdrehen)",
+        "Standbein leicht gebeugt",
+        "Blick zum Boden (Nacken neutral)",
+        "Langsam und kontrolliert"
+      ],
+      "haeufige_fehler": [
+        "Ruecken rundet",
+        "Huefte dreht auf (freie Seite geht hoch)",
+        "Standbein komplett gestreckt (instabil)"
+      ],
+      "varianten": [
+        "Mit Gewicht in einer Hand (gegenueber Standbein)",
+        "Freie Hand beruehrt den Boden (mehr Range)",
+        "An Wand fuer Balance (Einstieg)"
+      ]
+    },
+    {
+      "id": "wadenheben-einbeinig",
+      "name": "Wadenheben (einbeinig, Treppe)",
+      "kategorie": "Kraft",
+      "zielbereich": "Gastrocnemius, Soleus, Achillessehne",
+      "level": "Mittel",
+      "wiederholungen": "3x15 pro Seite",
+      "anleitung": "Auf einer Treppenstufe stehen, Vorderfuss auf der Kante, Ferse haengt frei. Einbeinig (anderer Fuss angehoben). Langsam hoch druecken (2 Sek), oben kurz halten, dann LANGSAM (3-4 Sek!) absenken bis die Ferse unter die Stufe geht.",
+      "worauf_achten": [
+        "EXZENTRISCH betonen: Absenken dauert 3-4 Sekunden!",
+        "Voller Bewegungsumfang: Ferse geht unter Stufenniveau",
+        "Oberkoerper aufrecht",
+        "Hand darf sich leicht festhalten (fuer Balance, nicht zum Ziehen)"
+      ],
+      "haeufige_fehler": [
+        "Zu schnell absenken",
+        "Nicht voller Range of Motion",
+        "Mit der Hand hochziehen"
+      ],
+      "varianten": [
+        "Beidbeinig (Einstieg)",
+        "Mit Gewicht (Rucksack/Hantel)",
+        "Knie leicht gebeugt = Soleus-Fokus"
+      ]
+    },
+    {
+      "id": "worlds-greatest-stretch",
+      "name": "World's Greatest Stretch",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Huefte, BWS, Hamstrings, Adduktoren",
+      "level": "Anfaenger",
+      "wiederholungen": "5 pro Seite",
+      "anleitung": "Grosser Ausfallschritt vorwaerts. Beide Haende neben den vorderen Fuss setzen. Ellbogen des vorderen Arms Richtung Boden druecken. Dann den gleichen Arm zur Decke rotieren (BWS-Rotation). Blick folgt der Hand. Zurueck, Beine strecken (Hamstring-Stretch).",
+      "worauf_achten": [
+        "Drei Bewegungen in einer: Huefte oeffnen, BWS rotieren, Hamstring dehnen",
+        "Bei der Rotation: Blick folgt der Hand zur Decke",
+        "Hinteres Bein bleibt gestreckt",
+        "Kontrolle wichtiger als Tempo"
+      ],
+      "haeufige_fehler": [
+        "Rotation nur aus der Schulter statt BWS",
+        "Hinteres Knie auf dem Boden (zu leicht)"
+      ],
+      "varianten": [
+        "Ohne BWS-Rotation (einfacher)",
+        "Mit zusaetzlichem Hamstring-Stretch am Ende"
+      ]
+    },
+    {
+      "id": "couch-stretch",
+      "name": "Couch Stretch",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Quadrizeps, Hueftbeuger, Rectus femoris",
+      "level": "Mittel",
+      "wiederholungen": "60 Sek pro Seite",
+      "anleitung": "Knie an eine Wand/Couch, Schienbein liegt an der Wand (Fussspitze zeigt nach oben). Vorderes Bein im 90-Grad-Winkel aufgestellt. Huefte nach vorne schieben. Oberkoerper aufrecht.",
+      "worauf_achten": [
+        "Huefte aktiv nach vorne schieben",
+        "Gesaess anspannen",
+        "Oberkoerper aufrecht (nicht nach vorne lehnen)",
+        "Kein Schmerz im Knie! Falls ja: weiter weg von der Wand"
+      ],
+      "haeufige_fehler": [
+        "Hohlkreuz statt Huefte vorschieben",
+        "Oberkoerper lehnt nach vorne",
+        "Zu nah an der Wand (Knie-Schmerz)"
+      ],
+      "varianten": [
+        "Weiter weg von der Wand (einfacher)",
+        "Arme ueber den Kopf (intensiver)"
+      ]
+    },
+    {
+      "id": "thoracic-rotation",
+      "name": "Thoracic Rotation (Seitlage)",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Brustwirbelsaeule, Rotation",
+      "level": "Anfaenger",
+      "wiederholungen": "10 pro Seite",
+      "anleitung": "Seitlage, Knie angewinkelt (ca. 90 Grad) uebereinander. Arme gestreckt vor dem Koerper. Oberen Arm langsam oeffnen und nach hinten fuehren - Blick folgt der Hand. Ziel: Schulter beruehrt den Boden (oder so weit wie moeglich). Langsam zurueck.",
+      "worauf_achten": [
+        "Knie bleiben zusammen und bewegen sich NICHT",
+        "Rotation kommt aus der Brustwirbelsaeule",
+        "Blick folgt der Hand",
+        "Am Endpunkt 2 Sek halten",
+        "Ausatmen beim Oeffnen"
+      ],
+      "haeufige_fehler": [
+        "Knie heben sich ab (= LWS rotiert statt BWS)",
+        "Zu schnell, ohne Kontrolle",
+        "Nur den Arm bewegen ohne echte BWS-Rotation"
+      ],
+      "varianten": [
+        "Mit gestrecktem oberem Bein (mehr Hueft-Lock)",
+        "Sitzend auf Stuhl (buero-tauglich)"
+      ]
+    },
+    {
+      "id": "ankle-dorsiflexion",
+      "name": "Ankle Dorsiflexion (Wand)",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Sprunggelenk, Dorsiflexion",
+      "level": "Anfaenger",
+      "wiederholungen": "10 pro Seite",
+      "anleitung": "Fussspitze ca. 10cm von einer Wand entfernt. Knie langsam nach vorne Richtung Wand druecken - Ferse bleibt am Boden. Ziel: Knie beruehrt die Wand. Falls zu leicht: Fuss weiter weg. Falls Ferse abhebt: Fuss naeher.",
+      "worauf_achten": [
+        "Ferse bleibt IMMER am Boden",
+        "Knie geht gerade nach vorne (nicht nach innen)",
+        "Langsam, kontrolliert, kein Wippen",
+        "Dehnung in der Achillessehne/Wade ist normal"
+      ],
+      "haeufige_fehler": [
+        "Ferse hebt ab",
+        "Knie geht nach innen (Valgus)",
+        "Zu schnell/wippend"
+      ],
+      "varianten": [
+        "Mit Gewicht auf dem Knie (fuer mehr Dehnung)",
+        "Auf einem Keil stehend"
+      ]
+    },
+    {
+      "id": "foam-rolling-waden",
+      "name": "Foam Rolling Waden",
+      "kategorie": "Mobilitaet",
+      "zielbereich": "Wadenmuskulatur, Faszien",
+      "level": "Anfaenger",
+      "wiederholungen": "2 min pro Seite",
+      "anleitung": "Auf den Boden setzen, Faszienrolle unter die Wade legen. Haende stuetzen hinter dem Koerper. Gesaess anheben. Langsam von Knierueckseite bis Ferse rollen. An schmerzhaften Punkten 20 Sek verweilen.",
+      "worauf_achten": [
+        "Nicht ueber das Kniegelenk rollen!",
+        "Langsam rollen (5 Sek pro Durchgang)",
+        "An Triggerpunkten verweilen, nicht weiterrollen",
+        "Fuss drehen (innen/aussen) fuer verschiedene Bereiche"
+      ],
+      "haeufige_fehler": [
+        "Zu schnell rollen",
+        "Ueber das Knie rollen (gefaehrlich)",
+        "Zu wenig Druck (Gesaess nicht angehoben)"
+      ],
+      "varianten": [
+        "Beine ueberkreuzen fuer mehr Druck",
+        "Lacrosse-Ball fuer punktuellen Druck",
+        "Bein dabei kreisen (Smash & Floss)"
+      ]
+    },
+    {
+      "id": "hip-thrust",
+      "name": "Hip Thrust (Schultern erhoeht)",
+      "kategorie": "Kraft",
+      "zielbereich": "Gluteus Maximus, Hueftextension",
+      "level": "Mittel",
+      "wiederholungen": "3x12",
+      "anleitung": "Schultern auf einer Bank/Couch ablegen, Fuesse hueftbreit flach am Boden (Knie 90 Grad). Huefte nach oben druecken bis Oberkoerper und Oberschenkel eine Linie bilden. Oben 2 Sek druecken, Gesaess maximal anspannen. Langsam absenken.",
+      "worauf_achten": [
+        "Kinn zur Brust (nicht in den Nacken)",
+        "Am hoechsten Punkt Gesaess MAXIMAL anspannen - das ist der Punkt!",
+        "Knie druecken leicht nach aussen (nicht zusammenfallen)",
+        "Druck kommt aus den FERSEN, nicht den Zehen",
+        "Unterer Ruecken macht NICHT die Arbeit - nur Gesaess"
+      ],
+      "haeufige_fehler": [
+        "Hohlkreuz am hoechsten Punkt (= Ruecken arbeitet statt Gesaess)",
+        "Knie fallen nach innen",
+        "Nicht voll durchstrecken oben",
+        "Zu schnell, kein Halten oben"
+      ],
+      "varianten": [
+        "Beidbeinig ohne Erhoehung (einfacher)",
+        "Einbeinig (deutlich schwerer)",
+        "Mit Gewicht/Rucksack auf der Huefte (Progression)",
+        "Fuesse erhoeht (mehr Range)"
+      ]
+    },
+    {
+      "id": "glute-kickback",
+      "name": "Glute Kickback (Vierfuesslerstand)",
+      "kategorie": "Kraft",
+      "zielbereich": "Gluteus Maximus, Hueftextension isoliert",
+      "level": "Anfaenger",
+      "wiederholungen": "3x15 pro Seite",
+      "anleitung": "Vierfuesslerstand (Haende unter Schultern, Knie unter Huefte). Ein Bein angewinkelt nach oben druecken - Fusssohle zeigt zur Decke. Bewegung endet wenn Oberschenkel auf Koerperhoehe ist. Oben 1 Sek druecken. Langsam zurueck (Knie beruehrt NICHT den Boden).",
+      "worauf_achten": [
+        "Bewegung kommt NUR aus der Huefte, Ruecken bleibt STILL",
+        "Nicht ins Hohlkreuz gehen!",
+        "Fuss bleibt geflext (Sohle zur Decke)",
+        "Core die ganze Zeit angespannt",
+        "Oben kurz halten und Gesaess bewusst anspannen"
+      ],
+      "haeufige_fehler": [
+        "Ruecken macht eine Welle (= Kompensation)",
+        "Bein geht zu hoch (= Hohlkreuz)",
+        "Zu schnell, kein bewusstes Anspannen oben"
+      ],
+      "varianten": [
+        "Mit Band um den Oberschenkel (mehr Widerstand)",
+        "Bein gestreckt statt angewinkelt (andere Hebel)",
+        "Stehend am Kabelzug (Gym)"
+      ]
+    },
+    {
+      "id": "step-ups-erhoeht",
+      "name": "Step-Ups (erhoeht, 30-40cm)",
+      "kategorie": "Kraft",
+      "zielbereich": "Gluteus Maximus, Quadrizeps, einbeinige Kraft",
+      "level": "Mittel",
+      "wiederholungen": "3x10 pro Seite",
+      "anleitung": "Vor eine stabile Erhoehung stellen (Bank, Treppenstufe, 30-40cm). Ein Fuss komplett auf die Erhoehung setzen. NUR aus diesem Bein hochdruecken - hinteres Bein hilft NICHT mit. Oben kurz stehen, dann langsam zurueck. Gleiches Bein alle Wiederholungen, dann wechseln.",
+      "worauf_achten": [
+        "NUR das obere Bein arbeitet - unteres Bein darf sich nicht abstossen!",
+        "Knie des Arbeitsbeins bleibt stabil (nicht nach innen)",
+        "Oberkoerper aufrecht, leichte Vorlage ist OK",
+        "Voller Fuss auf der Stufe (nicht nur Zehen)",
+        "Langsam und kontrolliert - kein Schwung"
+      ],
+      "haeufige_fehler": [
+        "Unteres Bein drueckt mit ab (= weniger Glute-Arbeit)",
+        "Knie geht nach innen",
+        "Zu niedrige Stufe (zu wenig Hueftbeugung = weniger Glute)"
+      ],
+      "varianten": [
+        "Niedrigere Stufe (einfacher)",
+        "Mit Gewichten in den Haenden (Progression)",
+        "Lateral Step-Ups (seitlich aufsteigen)"
+      ]
+    }
+  ]
+}

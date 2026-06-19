@@ -99,6 +99,124 @@ def generiere_coach_kommentar(analyse, plan, profil):
     return " ".join(teile)
 
 
+def generiere_exercises_html():
+    """Generiert HTML fuer den Uebungs-Tab mit Live-Filter."""
+    try:
+        with open(DATA_DIR / "exercises_library.json", "r", encoding="utf-8") as f:
+            lib = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return "<p style='color: var(--text-muted)'>Keine Uebungen vorhanden.</p>"
+
+    exercises = lib.get("uebungen", [])
+    if not exercises:
+        return "<p style='color: var(--text-muted)'>Keine Uebungen vorhanden.</p>"
+
+    # Exercises als JSON fuer clientseitiges Filtern einbetten
+    exercises_json = json.dumps(exercises, ensure_ascii=False)
+
+    return f"""
+            <div class="card">
+                <h2><span data-lang-de>Uebungsbibliothek</span><span data-lang-en>Exercise Library</span></h2>
+                <input type="text" id="exercise-filter" placeholder="Suche..." style="width: 100%; padding: 10px 14px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.85rem; font-family: var(--font-display); margin-bottom: 16px; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--border)'" oninput="filterExercises(this.value)">
+                <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;" id="exercise-category-filters">
+                    <button class="cat-filter active" onclick="filterByCategory('alle')">Alle</button>
+                    <button class="cat-filter" onclick="filterByCategory('Pre-Run')">Pre-Run</button>
+                    <button class="cat-filter" onclick="filterByCategory('Post-Run')">Post-Run</button>
+                    <button class="cat-filter" onclick="filterByCategory('Kraft')">Kraft</button>
+                    <button class="cat-filter" onclick="filterByCategory('Mobilitaet')">Mobility</button>
+                    <button class="cat-filter" onclick="filterByCategory('Rehab')">Rehab</button>
+                </div>
+            </div>
+            <div id="exercises-container"></div>
+            <script>
+                const exerciseData = {exercises_json};
+                function renderExercises(filtered) {{
+                    const container = document.getElementById('exercises-container');
+                    if (!filtered.length) {{ container.innerHTML = '<p style=\"color: var(--text-muted); padding: 20px;\">Keine Uebungen gefunden.</p>'; return; }}
+                    container.innerHTML = filtered.map(ex => `
+                        <div class="plan-tag" style="margin-bottom: 12px">
+                            <div class="plan-tag-header">
+                                <span class="plan-tag-datum">${{ex.kategorie}} · ${{ex.level}}</span>
+                                <span class="plan-tag-zone" style="background: rgba(6,182,212,0.12); color: #67e8f9">${{ex.wiederholungen}}</span>
+                            </div>
+                            <div class="plan-tag-titel">${{ex.name}}</div>
+                            <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 8px 0; line-height: 1.6">${{ex.anleitung}}</p>
+                            <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 4px"><strong>Ziel:</strong> ${{ex.zielbereich}}</p>
+                            ${{ex.worauf_achten ? '<div style="margin-top: 8px"><p style="font-size: 0.65rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px">Worauf achten:</p><ul class="plan-tag-details">' + ex.worauf_achten.map(w => '<li>' + w + '</li>').join('') + '</ul></div>' : ''}}
+                            ${{ex.haeufige_fehler ? '<div style="margin-top: 6px"><p style="font-size: 0.65rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px">Haeufige Fehler:</p><ul class="plan-tag-details">' + ex.haeufige_fehler.map(f => '<li style="color: var(--accent)">' + f + '</li>').join('') + '</ul></div>' : ''}}
+                            ${{ex.varianten ? '<div style="margin-top: 6px"><p style="font-size: 0.65rem; font-weight: 600; color: var(--primary-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px">Varianten:</p><ul class="plan-tag-details">' + ex.varianten.map(v => '<li style="color: var(--primary-light)">' + v + '</li>').join('') + '</ul></div>' : ''}}
+                        </div>
+                    `).join('');
+                }}
+                let currentCategory = 'alle';
+                function filterExercises(query) {{
+                    const q = query.toLowerCase();
+                    const filtered = exerciseData.filter(ex => {{
+                        const matchesText = !q || ex.name.toLowerCase().includes(q) || ex.zielbereich.toLowerCase().includes(q) || ex.kategorie.toLowerCase().includes(q);
+                        const matchesCat = currentCategory === 'alle' || ex.kategorie === currentCategory;
+                        return matchesText && matchesCat;
+                    }});
+                    renderExercises(filtered);
+                }}
+                function filterByCategory(cat) {{
+                    currentCategory = cat;
+                    document.querySelectorAll('.cat-filter').forEach(b => b.classList.remove('active'));
+                    event.target.classList.add('active');
+                    filterExercises(document.getElementById('exercise-filter').value);
+                }}
+                renderExercises(exerciseData);
+            </script>"""
+
+
+def generiere_strength_html(strength_plan):
+    """Generiert HTML fuer den Kraft/Mobility-Bereich im Training-Tab."""
+    if not strength_plan or not strength_plan.get("aktiv"):
+        return ""
+
+    routinen = strength_plan.get("routinen", {})
+    beschwerden = strength_plan.get("beschwerde_programme", [])
+
+    html_parts = []
+    html_parts.append("""
+            <div class="card" style="margin-top: 24px; border-left: 3px solid var(--info);">
+                <h2><span data-lang-de>Kraft &amp; Mobilit&auml;t</span><span data-lang-en>Strength &amp; Mobility</span></h2>
+            </div>""")
+
+    for key, routine in routinen.items():
+        uebungen_html = ""
+        for u in routine.get("uebungen", []):
+            uebungen_html += f"<li><strong>{u['name']}</strong> &ndash; {u['wiederholungen']}</li>"
+
+        badge_color = "var(--primary)" if "kraft" in key else "var(--info)"
+        badge_text = routine.get("frequenz", "")
+
+        html_parts.append(f"""
+            <div class="plan-tag">
+                <div class="plan-tag-header">
+                    <span class="plan-tag-datum">{routine.get('dauer_min', '')} min</span>
+                    <span class="plan-tag-zone" style="background: rgba(6, 182, 212, 0.12); color: #67e8f9">{badge_text}</span>
+                </div>
+                <div class="plan-tag-titel">{routine.get('name', '')}</div>
+                <ul class="plan-tag-details">{uebungen_html}</ul>
+            </div>""")
+
+    # Beschwerde-Programme
+    for bp in beschwerden:
+        uebungen_html = "".join(f"<li><strong>{u['name']}</strong> &ndash; {u['wiederholungen']}</li>" for u in bp.get("uebungen", []))
+        html_parts.append(f"""
+            <div class="plan-tag" style="border-left: 3px solid var(--accent);">
+                <div class="plan-tag-header">
+                    <span class="plan-tag-datum">{bp.get('beschwerde', '')}</span>
+                    <span class="plan-tag-zone zone-z4">Rehab</span>
+                </div>
+                <div class="plan-tag-titel">{bp.get('name', '')}</div>
+                <ul class="plan-tag-details">{uebungen_html}</ul>
+                <div class="plan-tag-coach">{bp.get('hinweis', '')}</div>
+            </div>""")
+
+    return "\n".join(html_parts)
+
+
 def generiere_plan_html(plan):
     """Generiert HTML für den Trainingsplan."""
     tage = plan.get("tage", [])
@@ -243,7 +361,7 @@ def generiere_timeline_html(coach_history):
 
 
 def generiere_html(analyse, plan, history, config, coach_history, profil,
-                   race_prognosis, weight_history, recovery_log, weekly_summaries):
+                   race_prognosis, weight_history, recovery_log, weekly_summaries, strength_plan):
     """Generiert das vollständige HTML-Dashboard."""
 
     # Chart-Daten
@@ -320,6 +438,12 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
     # Plan HTML
     plan_html = generiere_plan_html(plan)
 
+    # Strength HTML
+    strength_html = generiere_strength_html(strength_plan)
+
+    # Exercises HTML
+    exercises_html = generiere_exercises_html()
+
     # Timeline HTML
     timeline_html = generiere_timeline_html(coach_history)
 
@@ -370,6 +494,7 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
             <button class="nav-tab" data-tab="tab-prognose"><span data-lang-de>Prognose</span><span data-lang-en>Forecast</span></button>
             <button class="nav-tab" data-tab="tab-charts"><span data-lang-de>Statistiken</span><span data-lang-en>Stats</span></button>
             <button class="nav-tab" data-tab="tab-coach">Coach</button>
+            <button class="nav-tab" data-tab="tab-exercises"><span data-lang-de>Uebungen</span><span data-lang-en>Exercises</span></button>
             <button class="nav-tab" data-tab="tab-historie"><span data-lang-de>Historie</span><span data-lang-en>History</span></button>
         </nav>
 
@@ -539,6 +664,9 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
                 <p class="plan-intro">{plan.get("begruendung", "")}</p>
             </div>
             {plan_html}
+
+            <!-- Kraft & Mobilität -->
+            {strength_html}
         </div>
 
         <!-- TAB: Prognose & Recovery -->
@@ -783,6 +911,11 @@ def generiere_html(analyse, plan, history, config, coach_history, profil,
             </div>
         </div>
 
+        <!-- TAB: Exercises -->
+        <div id="tab-exercises" class="tab-content">
+            {exercises_html}
+        </div>
+
         <!-- TAB: Coach-Historie -->
         <div id="tab-historie" class="tab-content">
             <div class="card">
@@ -847,9 +980,10 @@ def main():
     weight_history = lade_json(DATA_DIR / "weight_history.json")
     recovery_log = lade_json(DATA_DIR / "recovery_log.json")
     weekly_summaries = lade_json(DATA_DIR / "weekly_summaries.json")
+    strength_plan = lade_json(DATA_DIR / "strength_plan.json")
 
     html = generiere_html(analyse, plan, history, config, coach_history, profil,
-                          race_prognosis, weight_history, recovery_log, weekly_summaries)
+                          race_prognosis, weight_history, recovery_log, weekly_summaries, strength_plan)
 
     WEB_DIR.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

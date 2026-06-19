@@ -1,4 +1,28 @@
 {
   "mcpServers": {
+    "garmin": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.12",
+        "--from",
+        "git+https://github.com/Taxuspt/garmin_mcp",
+        "garmin-mcp"
+      ],
+      "autoApprove": [
+        "get_activity",
+        "get_activity_splits",
+        "get_activity_hr_in_timezones",
+        "get_activity_weather",
+        "get_training_effect",
+        "get_activities_by_date",
+        "get_hrv_data",
+        "get_rhr_day",
+        "get_sleep_summary",
+        "get_training_readiness",
+        "get_weigh_ins",
+        "get_body_battery"
+      ]
+    }
   }
 }

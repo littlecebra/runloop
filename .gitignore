@@ -13,6 +13,7 @@ data/weight_history.json
 data/coach_history.json
 data/weekly_summaries.json
 data/plan.json
+data/strength_plan.json
 
 # Generiertes Dashboard (wird von generate_report.py erzeugt)
 web/index.html
